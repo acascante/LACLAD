@@ -1,0 +1,10 @@
+LACLAD
+localhost:8080/test/
+
+jpa setup --database MYSQL --provider HIBERNATE --databaseName LACLAD --userName root --password root
+entity jpa --class com.cyu.domain.Idiom --entityName IDIOMS --identifierColumn ID --identifierField id --identifierType java.lang.Long --sequenceName SQ_IDIOMS
+field string --fieldName description --column DESCRIPTION --notNull --comment "Idiom name"
+
+perform test
+web mvc setup
+web mvc all --package com.web.controller

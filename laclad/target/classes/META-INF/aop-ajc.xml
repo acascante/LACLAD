@@ -1,0 +1,12 @@
+<aspectj>
+<aspects>
+<aspect name="com.cyu.laclad.domain.Idiom_Roo_Jpa_Entity"/>
+<aspect name="com.cyu.laclad.domain.Idiom_Roo_JavaBean"/>
+<aspect name="com.cyu.laclad.web.controller.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="com.cyu.laclad.web.controller.IdiomController_Roo_Controller"/>
+<aspect name="com.cyu.laclad.domain.Idiom_Roo_Configurable"/>
+<aspect name="com.cyu.laclad.domain.Idiom_Roo_ToString"/>
+<aspect name="com.cyu.laclad.domain.Idiom_Roo_Jpa_ActiveRecord"/>
+</aspects>
+</aspectj>
+
