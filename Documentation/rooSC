@@ -1,10 +1,103 @@
-LACLAD
-localhost:8080/test/
+// -- Project definition --
+//project --topLevelPackage com.cyu --projectName "laclad" --java 8 --packaging JAR
 
-jpa setup --database MYSQL --provider HIBERNATE --databaseName LACLAD --userName root --password root
-entity jpa --class com.cyu.domain.Idiom --entityName IDIOMS --identifierColumn ID --identifierField id --identifierType java.lang.Long --sequenceName SQ_IDIOMS
-field string --fieldName description --column DESCRIPTION --notNull --comment "Idiom name"
+// -- Database definition --
+//jpa setup --database MYSQL --provider HIBERNATE --databaseName LACLAD --userName root --password root
 
-perform test
-web mvc setup
-web mvc all --package com.web.controller
+// -- Entities definition --
+
+// Entity
+entity jpa --class ~.laclad.domain.Entity --abstract --identifierField id --identifierType java.lang.Long --serializable --mappedSuperclass
+
+// Person
+entity jpa --class ~.laclad.domain.Person --abstract --extends Entity --table PERSONS --inheritanceType JOINED
+
+// Physical Person
+entity jpa --class ~.laclad.domain.PhysicalPerson --abstract --extends Person --sequenceName SQ_PHYSICAL_PERSONS --table PHYSICAL_PERSONS --inheritanceType TABLE_PER_CLASS
+
+// Juridic Person
+entity jpa --class ~.laclad.domain.JuridicPerson --abstract --extends Person --sequenceName SQ_JURIDIC_PERSONS --table JURIDIC_PERSONS --inheritanceType TABLE_PER_CLASS
+
+// Teacher
+entity jpa --class ~.laclad.domain.Teacher --extends PhysicalPerson --sequenceName SQ_TEACHERS --table TEACHERS --inheritanceType JOINED
+
+// Student
+entity jpa --class ~.laclad.domain.Student --extends PhysicalPerson --sequenceName SQ_STUDENTS --table STUDENTS --inheritanceType JOINED
+
+// User
+entity jpa --class ~.laclad.domain.User --extends Entity --sequenceName SQ_USERS --table USERS --inheritanceType JOINED
+
+// Idiom
+entity jpa --class ~.laclad.domain.Idiom --extends Entity --identifierColumn ID --sequenceName SQ_IDIOMS --table IDIOMS --inheritanceType TABLE_PER_CLASS
+
+// Test
+entity jpa --class ~.laclad.domain.Test --extends Entity --sequenceName SQ_TESTS --table TESTS --inheritanceType JOINED
+
+// Test Students
+entity jpa --class ~.laclad.domain.TestStudent --extends Entity --sequenceName SQ_TESTS_STUDENTS --table TESTS_STUDENTS --inheritanceType JOINED
+
+// Response
+entity jpa --class ~.laclad.domain.Response --extends Entity --sequenceName SQ_RESPONSES --table RESPONSES --inheritanceType JOINED
+
+// Question
+entity jpa --class ~.laclad.domain.Question --extends Entity --sequenceName SQ_QUESTIONS --table QUESTIONS --inheritanceType JOINED
+
+// Option
+entity jpa --class ~.laclad.domain.Option --extends Entity --sequenceName SQ_OPTIONS --table OPTIONS --inheritanceType JOINED
+
+// Group
+entity jpa --class ~.laclad.domain.Group --extends Entity --sequenceName SQ_GROUPS --table GROUPS --inheritanceType JOINED
+
+// Direction
+entity jpa --class ~.laclad.domain.Direction --extends Entity --sequenceName SQ_DIRECTIONS --table DIRECTIONS --inheritanceType JOINED
+
+// Location
+entity jpa --class ~.laclad.domain.Location --extends Entity --sequenceName SQ_LOCATIONS --table LOCATIONS --inheritanceType JOINED
+
+// Email
+entity jpa --class ~.laclad.domain.Email --extends Entity --sequenceName SQ_EMAILS --table EMAILS --inheritanceType JOINED
+
+// Phone
+entity jpa --class ~.laclad.domain.Phone --extends Entity --sequenceName SQ_PHONES --table PHONES --inheritanceType JOINED
+
+// -- Enums definitio --
+
+// Gender
+enum type --class ~.laclad.enums.Gender
+enum constant --name MALE
+enum constant --name FEMALE
+enum constant --name UNDEFINED
+
+// Status
+enum type --class ~.laclad.enums.Status
+enum constant --name ACTIVE
+enum constant --name INACTIVE
+enum constant --name BLOCK
+
+// -- Fields definition --
+// Person
+field number --class ~.laclad.domain.Person --fieldName personalId --type java.lang.Long --column PERSONAL_ID --notNull --unique --comment "Personal ID"
+field number --class ~.laclad.domain.Person --fieldName status --type int --column STATUS --notNull --comment "0 Inactive -- 1 Active"
+field string --class ~.laclad.domain.Person --fieldName name --column NAME --notNull 
+
+// Physical Person
+field string --class ~.laclad.domain.PhysicalPerson --fieldName lastName --column LAST_NAME --notNull 
+field string --class ~.laclad.domain.PhysicalPerson --fieldName secondLastName --column SECOND_LAST_NAME
+field date --class ~.laclad.domain.PhysicalPerson --fieldName birthday --type java.util.Date --column BIRTHDAY
+
+// Juridic Person
+field string --class ~.laclad.domain.JuridicPerson --fieldName juridicName --column JURIDIC_NAME
+field reference --fieldName contact --type ~.laclad.domain.PhysicalPerson --cardinality MANY_TO_ONE --class ~.laclad.domain.JuridicPerson --referencedColumnName ID --joinColumnName CONTACT_ID
+
+// Idiom
+field string --class ~.laclad.domain.Idiom --fieldName description --column DESCRIPTION --notNull --comment "Idiom Name"
+field number --class ~.laclad.domain.Idiom --fieldName status --type int --column STATUS --notNull --comment "0 Inactive -- 1 Active"
+
+// -- Test --
+//perform tests 
+
+// -- MVS SETUP --
+//web mvc setup
+//web mvc all --package com.cyu.laclad.web.controller
+
+
