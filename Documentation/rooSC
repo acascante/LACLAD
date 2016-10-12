@@ -24,29 +24,35 @@ entity jpa --class ~.laclad.domain.Teacher --extends PhysicalPerson --sequenceNa
 // Student
 entity jpa --class ~.laclad.domain.Student --extends PhysicalPerson --sequenceName SQ_STUDENTS --table STUDENTS --inheritanceType JOINED
 
-// User
-entity jpa --class ~.laclad.domain.User --extends Entity --sequenceName SQ_USERS --table USERS --inheritanceType JOINED
+// Representant
+entity jpa --class ~.laclad.domain.Representant --extends PhysicalPerson --sequenceName SQ_REPRESENTANTS --table REPRESENTANTS --inheritanceType JOINED
+
+// Admin
+entity jpa --class ~.laclad.domain.Admin --extends PhysicalPerson --sequenceName SQ_ADMINS --table ADMINS --inheritanceType JOINED
+
+// SystemUser
+entity jpa --class ~.laclad.domain.SystemUser --extends Entity --sequenceName SQ_SYSTEM_USERS --table SYSTEM_USERS --inheritanceType JOINED
 
 // Idiom
-entity jpa --class ~.laclad.domain.Idiom --extends Entity --identifierColumn ID --sequenceName SQ_IDIOMS --table IDIOMS --inheritanceType TABLE_PER_CLASS
+entity jpa --class ~.laclad.domain.Idiom --extends Entity --identifierColumn ID --sequenceName SQ_IDIOMS --table IDIOMS --inheritanceType JOINED
 
-// Test
-entity jpa --class ~.laclad.domain.Test --extends Entity --sequenceName SQ_TESTS --table TESTS --inheritanceType JOINED
+// Quiz
+entity jpa --class ~.laclad.domain.Quiz --extends Entity --sequenceName SQ_QUIZZES --table QUIZZES --inheritanceType JOINED
 
-// Test Students
-entity jpa --class ~.laclad.domain.TestStudent --extends Entity --sequenceName SQ_TESTS_STUDENTS --table TESTS_STUDENTS --inheritanceType JOINED
+// Quiz Students
+entity jpa --class ~.laclad.domain.QuizStudent --extends Entity --sequenceName SQ_QUIZZES_STUDENTS --table QUIZZES_STUDENTS --inheritanceType JOINED
 
-// Response
-entity jpa --class ~.laclad.domain.Response --extends Entity --sequenceName SQ_RESPONSES --table RESPONSES --inheritanceType JOINED
+// Quiz QuizResponse
+entity jpa --class ~.laclad.domain.QuizResponse --extends Entity --sequenceName SQ_QUIZZES_RESPONSES --table QUIZZES_RESPONSES --inheritanceType JOINED
 
-// Question
-entity jpa --class ~.laclad.domain.Question --extends Entity --sequenceName SQ_QUESTIONS --table QUESTIONS --inheritanceType JOINED
+// Quiz Question
+entity jpa --class ~.laclad.domain.QuizQuestion --extends Entity --sequenceName SQ_QUIZZES_QUESTIONS --table QUIZZES_QUESTIONS --inheritanceType JOINED
 
-// Option
-entity jpa --class ~.laclad.domain.Option --extends Entity --sequenceName SQ_OPTIONS --table OPTIONS --inheritanceType JOINED
+// Quiz Choices
+entity jpa --class ~.laclad.domain.QuizChoice --extends Entity --sequenceName SQ_QUIZZES_CHOICES --table QUIZZES_CHOICES --inheritanceType JOINED
 
-// Group
-entity jpa --class ~.laclad.domain.Group --extends Entity --sequenceName SQ_GROUPS --table GROUPS --inheritanceType JOINED
+// Class Group
+entity jpa --class ~.laclad.domain.ClassGroup --extends Entity --sequenceName SQ_CLASS_GROUPS --table CLASS_GROUPS --inheritanceType JOINED
 
 // Direction
 entity jpa --class ~.laclad.domain.Direction --extends Entity --sequenceName SQ_DIRECTIONS --table DIRECTIONS --inheritanceType JOINED
@@ -59,6 +65,9 @@ entity jpa --class ~.laclad.domain.Email --extends Entity --sequenceName SQ_EMAI
 
 // Phone
 entity jpa --class ~.laclad.domain.Phone --extends Entity --sequenceName SQ_PHONES --table PHONES --inheritanceType JOINED
+
+// Company
+entity jpa --class ~.laclad.domain.Company --extends Entity --sequenceName SQ_COMPANIES --table COMPANIES --inheritanceType JOINED
 
 // -- Enums definitio --
 
@@ -74,30 +83,120 @@ enum constant --name ACTIVE
 enum constant --name INACTIVE
 enum constant --name BLOCK
 
+// Quiz Types
+enum type --class ~.laclad.enums.QuizType
+enum constant --name INIT
+enum constant --name PROGRESS
+enum constant --name FINAL
+
+// Direction Types
+enum type --class ~.laclad.enums.DirectionType
+enum constant --name HOME
+enum constant --name WORK_PLACE
+enum constant --name OTHER
+
 // -- Fields definition --
+// SystemUser
+field string --class ~.laclad.domain.SystemUser --fieldName userName --column USER_NAME --notNull 
+field string --class ~.laclad.domain.SystemUser --fieldName password --column PASSWORD --notNull 
+field enum --class ~.laclad.domain.SystemUser --fieldName status --type ~.laclad.enums.Status
+
+// Representant
+field date --class ~.laclad.domain.Representant --fieldName enroldDate --type java.util.Date --column ENROLL_DATE
+field enum --class ~.laclad.domain.Representant --fieldName status --type ~.laclad.enums.Status
+
+// Idiom
+field string --class ~.laclad.domain.Idiom --fieldName description --column DESCRIPTION --notNull --comment "Idiom Name"
+field enum --class ~.laclad.domain.Idiom --fieldName status --type ~.laclad.enums.Status
+
+// ClassGroup
+field string --class ~.laclad.domain.ClassGroup --fieldName name --column NAME --notNull 
+field reference --class ~.laclad.domain.ClassGroup --fieldName company --type ~.laclad.domain.Company --cardinality MANY_TO_ONE  --referencedColumnName ID --joinColumnName ID_COMPANY
+field enum --class ~.laclad.domain.ClassGroup --fieldName status --type ~.laclad.enums.Status
+
+// Location
+field reference --class ~.laclad.domain.Location --fieldName idParentLocation --type ~.laclad.domain.Location --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_PARENT_LOCATION
+field string --class ~.laclad.domain.Location --fieldName description --column DESCRIPTION --notNull
+
+// Direction
+field string --class ~.laclad.domain.Direction --fieldName street --column STREET --notNull
+field string --class ~.laclad.domain.Direction --fieldName otherSigns --column OTRER_SIGNS --notNull
+field string --class ~.laclad.domain.Direction --fieldName zipCode --column ZIP_CODE --notNull
+field reference --class ~.laclad.domain.Direction --fieldName location --type ~.laclad.domain.Location --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_LOCATION
+field enum --class ~.laclad.domain.Direction --fieldName type --type ~.laclad.enums.DirectionType
+
+// Email
+field string --class ~.laclad.domain.Email --fieldName email --column EMAIL --notNull
+
+// Phone
+field number --class ~.laclad.domain.Phone --fieldName phoneNumber --type java.lang.Long --column PHONE_NUMBER --notNull
+
 // Person
 field number --class ~.laclad.domain.Person --fieldName personalId --type java.lang.Long --column PERSONAL_ID --notNull --unique --comment "Personal ID"
-field number --class ~.laclad.domain.Person --fieldName status --type int --column STATUS --notNull --comment "0 Inactive -- 1 Active"
 field string --class ~.laclad.domain.Person --fieldName name --column NAME --notNull 
+field enum --class ~.laclad.domain.Person --fieldName status --type ~.laclad.enums.Status
+field set --class ~.laclad.domain.Person --fieldName directions --type ~.laclad.domain.Direction --cardinality ONE_TO_MANY
+field set --class ~.laclad.domain.Person --fieldName emails --type ~.laclad.domain.Email --cardinality ONE_TO_MANY
+field set --class ~.laclad.domain.Person --fieldName phones --type ~.laclad.domain.Phone --cardinality ONE_TO_MANY
 
 // Physical Person
 field string --class ~.laclad.domain.PhysicalPerson --fieldName lastName --column LAST_NAME --notNull 
 field string --class ~.laclad.domain.PhysicalPerson --fieldName secondLastName --column SECOND_LAST_NAME
+field enum --class ~.laclad.domain.PhysicalPerson --fieldName gender --type ~.laclad.enums.Gender
 field date --class ~.laclad.domain.PhysicalPerson --fieldName birthday --type java.util.Date --column BIRTHDAY
 
 // Juridic Person
 field string --class ~.laclad.domain.JuridicPerson --fieldName juridicName --column JURIDIC_NAME
-field reference --fieldName contact --type ~.laclad.domain.PhysicalPerson --cardinality MANY_TO_ONE --class ~.laclad.domain.JuridicPerson --referencedColumnName ID --joinColumnName CONTACT_ID
+field reference --class ~.laclad.domain.JuridicPerson --fieldName legalRepresentant --type ~.laclad.domain.Representant --cardinality MANY_TO_ONE  --referencedColumnName ID --joinColumnName CONTACT_ID
 
-// Idiom
-field string --class ~.laclad.domain.Idiom --fieldName description --column DESCRIPTION --notNull --comment "Idiom Name"
-field number --class ~.laclad.domain.Idiom --fieldName status --type int --column STATUS --notNull --comment "0 Inactive -- 1 Active"
+// Teacher
+field reference --class ~.laclad.domain.Teacher --fieldName mainLanguage --type ~.laclad.domain.Idiom --cardinality MANY_TO_ONE  --referencedColumnName ID --joinColumnName ID_LANGUAGE
+field reference --class ~.laclad.domain.Teacher --fieldName systemUser --type ~.laclad.domain.SystemUser --cardinality ONE_TO_ONE --referencedColumnName ID --joinColumnName ID_USER
+field date --class ~.laclad.domain.Teacher --fieldName enroldDate --type java.util.Date --column ENROLL_DATE
+field enum --class ~.laclad.domain.Teacher --fieldName status --type ~.laclad.enums.Status
+
+// Student
+field reference --class ~.laclad.domain.Student --fieldName systemUser --type ~.laclad.domain.SystemUser --cardinality ONE_TO_ONE --referencedColumnName ID --joinColumnName ID_USER
+field reference --class ~.laclad.domain.Student --fieldName classGroup --type ~.laclad.domain.ClassGroup --cardinality ONE_TO_ONE --referencedColumnName ID --joinColumnName ID_GROUP
+field date --class ~.laclad.domain.Student --fieldName enroldDate --type java.util.Date --column ENROLL_DATE
+field enum --class ~.laclad.domain.Student --fieldName status --type ~.laclad.enums.Status
+
+// Admin
+field reference --class ~.laclad.domain.Admin --fieldName systemUser --type ~.laclad.domain.SystemUser --cardinality ONE_TO_ONE --referencedColumnName ID --joinColumnName ID_USER
+field date --class ~.laclad.domain.Admin --fieldName enroldDate --type java.util.Date --column ENROLL_DATE
+field enum --class ~.laclad.domain.Admin --fieldName status --type ~.laclad.enums.Status
+
+// Quiz
+field string --class ~.laclad.domain.Quiz --fieldName name --column NAME --notNull 
+field string --class ~.laclad.domain.Quiz --fieldName description --column DESCRIPTION --notNull 
+field enum --class ~.laclad.domain.Quiz --fieldName type --type ~.laclad.enums.QuizType
+field enum --class ~.laclad.domain.Quiz --fieldName status --type ~.laclad.enums.Status
+
+// QuizQuestion
+field reference --class ~.laclad.domain.QuizQuestion --fieldName idQuiz --type ~.laclad.domain.Quiz --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_QUIZ
+field number --class ~.laclad.domain.QuizQuestion --fieldName questionNumber --type java.lang.Integer --column QUESTION_NUMBER --notNull 
+field string --class ~.laclad.domain.QuizQuestion --fieldName statement --column STATEMENT --notNull
+
+// QuizChoice
+field reference --class ~.laclad.domain.QuizChoice --fieldName idQuestion --type ~.laclad.domain.QuizQuestion --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_QUESTION
+field number --class ~.laclad.domain.QuizChoice --fieldName optionNumber --type java.lang.Integer --column OPTION_NUMBER --notNull 
+field string --class ~.laclad.domain.QuizChoice --fieldName description --column DESCRIPTION --notNull
+field boolean --class ~.laclad.domain.QuizChoice --fieldName isTrue --column IS_TRUE --notNull
+
+// Quizzes Students
+field reference --class ~.laclad.domain.QuizStudent --fieldName idQuiz --type ~.laclad.domain.Quiz --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_QUIZ
+field reference --class ~.laclad.domain.QuizStudent --fieldName idStudent --type ~.laclad.domain.Student --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_STUDENT
+field enum --class ~.laclad.domain.QuizStudent --fieldName status --type ~.laclad.enums.Status
+
+// QuizResponse
+field reference --class ~.laclad.domain.QuizResponse --fieldName idQuizStudent --type ~.laclad.domain.QuizStudent --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_QUIZ_STUDENT
+field reference --class ~.laclad.domain.QuizResponse --fieldName idOption --type ~.laclad.domain.QuizChoice --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_OPTION
+field enum --class ~.laclad.domain.QuizResponse --fieldName status --type ~.laclad.enums.Status
 
 // -- Test --
 //perform tests 
 
 // -- MVS SETUP --
-//web mvc setup
-//web mvc all --package com.cyu.laclad.web.controller
+web mvc all --package com.cyu.laclad.web.controllers
 
 
