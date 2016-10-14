@@ -79,8 +79,8 @@ enum constant --name UNDEFINED
 
 // Status
 enum type --class ~.laclad.enums.Status
-enum constant --name ACTIVE
 enum constant --name INACTIVE
+enum constant --name ACTIVE
 enum constant --name BLOCK
 
 // Quiz Types
@@ -95,10 +95,17 @@ enum constant --name HOME
 enum constant --name WORK_PLACE
 enum constant --name OTHER
 
+// User Types
+enum type --class ~.laclad.enums.UserType
+enum constant --name ROLE_ADMIN
+enum constant --name ROLE_TEACHER
+enum constant --name ROLE_STUDENT
+
 // -- Fields definition --
 // SystemUser
 field string --class ~.laclad.domain.SystemUser --fieldName userName --column USER_NAME --notNull 
 field string --class ~.laclad.domain.SystemUser --fieldName password --column PASSWORD --notNull 
+field enum --class ~.laclad.domain.SystemUser --fieldName type --type ~.laclad.enums.UserType
 field enum --class ~.laclad.domain.SystemUser --fieldName status --type ~.laclad.enums.Status
 
 // Representant
@@ -199,4 +206,6 @@ field enum --class ~.laclad.domain.QuizResponse --fieldName status --type ~.lacl
 // -- MVS SETUP --
 web mvc all --package com.cyu.laclad.web.controllers
 
+// Security
+security setup
 
