@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cyu_laclad_domain_Direction" object="${direction}" path="/directions" z="ZfA55Yo/AjDxi8P6ydi47VZPB+M=">
+        <field:display field="street" id="s_com_cyu_laclad_domain_Direction_street" object="${direction}" z="75bIuvvnN06qZJ7pGdgZZnqb2GQ="/>
+        <field:display field="otherSigns" id="s_com_cyu_laclad_domain_Direction_otherSigns" object="${direction}" z="zSsFjfEvBYMSEgVaq9ZwYdNAwCM="/>
+        <field:display field="zipCode" id="s_com_cyu_laclad_domain_Direction_zipCode" object="${direction}" z="ZFZvAgmUjvgTOdo3mlVE90PLCZE="/>
+        <field:display field="location" id="s_com_cyu_laclad_domain_Direction_location" object="${direction}" z="Tha876W5cutDz3CIBmZvumQM7Bw="/>
+        <field:display field="type" id="s_com_cyu_laclad_domain_Direction_type" object="${direction}" z="QLYAKpDC+0mV6mb5nTWDajEizfU="/>
+    </page:show>
+</div>

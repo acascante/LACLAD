@@ -4,5 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_cyu_laclad_domain_Idiom" modelAttribute="idiom" path="/idioms" versionField="Version" z="qdP1w5i3dlC80M/jHilz5odOuts=">
         <field:input field="description" id="c_com_cyu_laclad_domain_Idiom_description" required="true" z="4ePGwIugDeGBAOxlJ5NcDDCcxFQ="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Idiom_status" items="${statuses}" path="statuses" z="jRMf5YhW+zR25UHm5D2Nh8PsghI="/>
     </form:update>
 </div>

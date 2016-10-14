@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cyu_laclad_domain_QuizChoice" modelAttribute="quizChoice" path="/quizchoices" versionField="Version" z="bJwUiH4sUq5FUN5vwOkISJ5pdHQ=">
+        <field:select field="idQuestion" id="c_com_cyu_laclad_domain_QuizChoice_idQuestion" itemValue="id" items="${quizquestions}" path="/quizquestions" z="iGG7rhUaZcVgmH7+zYf/KCwJU74="/>
+        <field:input field="optionNumber" id="c_com_cyu_laclad_domain_QuizChoice_optionNumber" required="true" validationMessageCode="field_invalid_integer" z="jRFeChWDQmDWj+p/J/mdkkV1lKA="/>
+        <field:input field="description" id="c_com_cyu_laclad_domain_QuizChoice_description" required="true" z="OmENTilo4JGGwFSBHQcShSTj7kI="/>
+        <field:checkbox field="isTrue" id="c_com_cyu_laclad_domain_QuizChoice_isTrue" z="gFU+sI/1WR6NebPB9vC4oc7hJjQ="/>
+    </form:update>
+</div>

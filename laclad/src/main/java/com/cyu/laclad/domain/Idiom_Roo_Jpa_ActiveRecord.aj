@@ -5,22 +5,11 @@ package com.cyu.laclad.domain;
 
 import com.cyu.laclad.domain.Idiom;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect Idiom_Roo_Jpa_ActiveRecord {
     
-    @PersistenceContext
-    transient EntityManager Idiom.entityManager;
-    
-    public static final List<String> Idiom.fieldNames4OrderClauseFilter = java.util.Arrays.asList("description");
-    
-    public static final EntityManager Idiom.entityManager() {
-        EntityManager em = new Idiom().entityManager;
-        if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
-        return em;
-    }
+    public static final List<String> Idiom.fieldNames4OrderClauseFilter = java.util.Arrays.asList("description", "status");
     
     public static long Idiom.countIdioms() {
         return entityManager().createQuery("SELECT COUNT(o) FROM Idiom o", Long.class).getSingleResult();
@@ -59,35 +48,6 @@ privileged aspect Idiom_Roo_Jpa_ActiveRecord {
             }
         }
         return entityManager().createQuery(jpaQuery, Idiom.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
-    @Transactional
-    public void Idiom.persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.persist(this);
-    }
-    
-    @Transactional
-    public void Idiom.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            Idiom attached = Idiom.findIdiom(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
-    public void Idiom.flush() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.flush();
-    }
-    
-    @Transactional
-    public void Idiom.clear() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.clear();
     }
     
     @Transactional

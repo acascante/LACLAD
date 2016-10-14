@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cyu_laclad_domain_Student" object="${student}" path="/students" z="k5KkRGk8AY7skkTLKJ+18EgFNV0=">
+        <field:display field="status" id="s_com_cyu_laclad_domain_Student_status" object="${student}" z="fy88jA0EpB0t7aKnVITdHFTj/9g="/>
+        <field:display field="lastName" id="s_com_cyu_laclad_domain_Student_lastName" object="${student}" z="pHcq85BMo4ImQP1jn+bSFA0vrVQ="/>
+        <field:display field="secondLastName" id="s_com_cyu_laclad_domain_Student_secondLastName" object="${student}" z="S9tqWtI2BwTSpD2w/PyDKSTtSJ4="/>
+        <field:display field="gender" id="s_com_cyu_laclad_domain_Student_gender" object="${student}" z="ftZwEZ7J71C+gwnpvDBh5rNrmfE="/>
+        <field:display date="true" dateTimePattern="${student_birthday_date_format}" field="birthday" id="s_com_cyu_laclad_domain_Student_birthday" object="${student}" z="qVnYt+KkSI3NTwrPswVERCWDLtw="/>
+        <field:display field="personalId" id="s_com_cyu_laclad_domain_Student_personalId" object="${student}" z="Ta1LAaa1UEkqjOxiWhoqEiEclUE="/>
+        <field:display field="name" id="s_com_cyu_laclad_domain_Student_name" object="${student}" z="MXuOOrRPw4Lxe/9M9J7AvFu2mro="/>
+        <field:display field="systemUser" id="s_com_cyu_laclad_domain_Student_systemUser" object="${student}" z="JyIplMle7ja4Ekd2iwHVCCtrii0="/>
+        <field:display field="classGroup" id="s_com_cyu_laclad_domain_Student_classGroup" object="${student}" z="O0FoF4lHqjsRufoh0IuR0yAYB9k="/>
+        <field:display date="true" dateTimePattern="${student_enrolddate_date_format}" field="enroldDate" id="s_com_cyu_laclad_domain_Student_enroldDate" object="${student}" z="FFhX16NdW8b2A2To7ePXCSqrcfA="/>
+    </page:show>
+</div>

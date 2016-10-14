@@ -4,6 +4,7 @@
 package com.cyu.laclad.domain;
 
 import com.cyu.laclad.domain.Idiom;
+import com.cyu.laclad.enums.Status;
 
 privileged aspect Idiom_Roo_JavaBean {
     
@@ -13,6 +14,14 @@ privileged aspect Idiom_Roo_JavaBean {
     
     public void Idiom.setDescription(String description) {
         this.description = description;
+    }
+    
+    public Status Idiom.getStatus() {
+        return this.status;
+    }
+    
+    public void Idiom.setStatus(Status status) {
+        this.status = status;
     }
     
 }

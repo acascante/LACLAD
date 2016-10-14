@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cyu_laclad_domain_Representant" object="${representant}" path="/representants" z="GGYDd+9I73nfLlkTqjQZBL5SfCc=">
+        <field:display date="true" dateTimePattern="${representant_enrolddate_date_format}" field="enroldDate" id="s_com_cyu_laclad_domain_Representant_enroldDate" object="${representant}" z="DCQIQOSkDnTYQDexyx2dwbPNVo0="/>
+        <field:display field="status" id="s_com_cyu_laclad_domain_Representant_status" object="${representant}" z="pcUJWodj/84Fzx7V5hoUpBA3Gv8="/>
+        <field:display field="personalId" id="s_com_cyu_laclad_domain_Representant_personalId" object="${representant}" z="1CXS85u3SaAkX+4dINAgXp+ZgWM="/>
+        <field:display field="name" id="s_com_cyu_laclad_domain_Representant_name" object="${representant}" z="Xqq+gi9FvUyiBoNt4osZHErlb6I="/>
+        <field:display field="lastName" id="s_com_cyu_laclad_domain_Representant_lastName" object="${representant}" z="B51LUFPejxNs62zkjcT60B7U6gM="/>
+        <field:display field="secondLastName" id="s_com_cyu_laclad_domain_Representant_secondLastName" object="${representant}" z="xFBBDL9E6VwpfSX1tFSF+jNYlws="/>
+        <field:display field="gender" id="s_com_cyu_laclad_domain_Representant_gender" object="${representant}" z="XG7/X+sNxSGqxK2BTqWvxLbMZTQ="/>
+        <field:display date="true" dateTimePattern="${representant_birthday_date_format}" field="birthday" id="s_com_cyu_laclad_domain_Representant_birthday" object="${representant}" z="dHu7JQOdQLcMfvr48+Qh4pIcYXs="/>
+    </page:show>
+</div>

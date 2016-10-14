@@ -4,14 +4,10 @@
 package com.cyu.laclad.domain;
 
 import com.cyu.laclad.domain.Idiom;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.persistence.Version;
 
 privileged aspect Idiom_Roo_Jpa_Entity {
     
@@ -19,30 +15,6 @@ privileged aspect Idiom_Roo_Jpa_Entity {
     
     declare @type: Idiom: @Table(name = "IDIOMS");
     
-    @Id
-    @SequenceGenerator(name = "idiomGen", sequenceName = "SQ_IDIOMS")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "idiomGen")
-    @Column(name = "ID")
-    private Long Idiom.id;
-    
-    @Version
-    @Column(name = "version")
-    private Integer Idiom.version;
-    
-    public Long Idiom.getId() {
-        return this.id;
-    }
-    
-    public void Idiom.setId(Long id) {
-        this.id = id;
-    }
-    
-    public Integer Idiom.getVersion() {
-        return this.version;
-    }
-    
-    public void Idiom.setVersion(Integer version) {
-        this.version = version;
-    }
+    declare @type: Idiom: @Inheritance(strategy = InheritanceType.JOINED);
     
 }

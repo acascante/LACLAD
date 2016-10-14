@@ -5,6 +5,7 @@
     <page:list id="pl_com_cyu_laclad_domain_Idiom" items="${idioms}" z="EC/lS9EgL7XRVfyGZ44QYzwOk5M=">
         <table:table data="${idioms}" id="l_com_cyu_laclad_domain_Idiom" path="/idioms" z="Mu+y/V6+o8t2cEknzMtNkGYtWFU=">
             <table:column id="c_com_cyu_laclad_domain_Idiom_description" property="description" z="+KfEl+hOzfuirWEInOlPrHD23Fc="/>
+            <table:column id="c_com_cyu_laclad_domain_Idiom_status" property="status" z="x9vIkYIZ8juDmOVMWyZdsQsGbq0="/>
         </table:table>
     </page:list>
 </div>

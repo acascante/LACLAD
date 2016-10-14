@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cyu_laclad_domain_Phone" modelAttribute="phone" path="/phones" versionField="Version" z="sqllcqbX6UpLGOT4ZV++c52EPwI=">
+        <field:input field="phoneNumber" id="c_com_cyu_laclad_domain_Phone_phoneNumber" required="true" validationMessageCode="field_invalid_integer" z="xW89e3Mpz8M+fqeKbQbVTrLamm0="/>
+    </form:update>
+</div>

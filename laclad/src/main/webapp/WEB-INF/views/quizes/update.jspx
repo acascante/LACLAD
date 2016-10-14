@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cyu_laclad_domain_Quiz" modelAttribute="quiz" path="/quizes" versionField="Version" z="es3vglxro5FbuzRstu4gWYOKB+M=">
+        <field:input field="name" id="c_com_cyu_laclad_domain_Quiz_name" required="true" z="WrSM1XJ3zdyqfvv1SedacYBuSec="/>
+        <field:input field="description" id="c_com_cyu_laclad_domain_Quiz_description" required="true" z="QEZgxDOaWm5DPtdo/LJ3TPkCNF4="/>
+        <field:select field="type" id="c_com_cyu_laclad_domain_Quiz_type" items="${quiztypes}" path="quiztypes" z="LwyWqSBuUTMd+mDcGKOVJtWnBXY="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Quiz_status" items="${statuses}" path="statuses" z="YcGzBDpyr7gtYxAcc3bM/WeVAPI="/>
+    </form:update>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cyu_laclad_domain_Direction" modelAttribute="direction" path="/directions" versionField="Version" z="vEQy5aLqOdDo3lax4ZtYqQbL0Pc=">
+        <field:input field="street" id="c_com_cyu_laclad_domain_Direction_street" required="true" z="8hC4+eZEAHjsUlhpnxIunVb2xI8="/>
+        <field:input field="otherSigns" id="c_com_cyu_laclad_domain_Direction_otherSigns" required="true" z="sHYnNh9NQY98KjpZIYJd3jf10Vs="/>
+        <field:input field="zipCode" id="c_com_cyu_laclad_domain_Direction_zipCode" required="true" z="tzqtY6dgyb+vpsk3x1QRsxqjVp4="/>
+        <field:select field="location" id="c_com_cyu_laclad_domain_Direction_location" itemValue="id" items="${locations}" path="/locations" z="Z6LJRxRiPCJK05UgyYywVJkWEF0="/>
+        <field:select field="type" id="c_com_cyu_laclad_domain_Direction_type" items="${directiontypes}" path="directiontypes" z="qN1XFslq+mRCRl6IoiSzIBu8itE="/>
+    </form:update>
+</div>

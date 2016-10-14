@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cyu_laclad_domain_SystemUser" items="${systemusers}" z="xrhQ0JRR5qtQMPwKEW0pLnWnjl0=">
+        <table:table data="${systemusers}" id="l_com_cyu_laclad_domain_SystemUser" path="/systemusers" z="R4GuCoUbnINOv4+Il/U4LriIdHI=">
+            <table:column id="c_com_cyu_laclad_domain_SystemUser_userName" property="userName" z="SFm7XGlYPda9abXX7bR/OBsI+EA="/>
+            <table:column id="c_com_cyu_laclad_domain_SystemUser_password" property="password" z="F2/+cM+mi28uHzHJ5U2CozID+u0="/>
+            <table:column id="c_com_cyu_laclad_domain_SystemUser_type" property="type" z="Ir4EpDtv7xORta/C8MgR3Yq3R0k="/>
+            <table:column id="c_com_cyu_laclad_domain_SystemUser_status" property="status" z="7a5TsG7tD7+pmFnm+N61hzWiXWk="/>
+        </table:table>
+    </page:list>
+</div>

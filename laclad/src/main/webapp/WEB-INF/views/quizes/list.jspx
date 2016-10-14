@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cyu_laclad_domain_Quiz" items="${quizes}" z="tBGWVVe2AY8POGZE1zQQixuaZLM=">
+        <table:table data="${quizes}" id="l_com_cyu_laclad_domain_Quiz" path="/quizes" z="nokucUD6D3u2ejiChiqVG+xNF7E=">
+            <table:column id="c_com_cyu_laclad_domain_Quiz_name" property="name" z="Q63sLfJjSH7QBvXPzbHF6yB6y7k="/>
+            <table:column id="c_com_cyu_laclad_domain_Quiz_description" property="description" z="9lr+IXTEdhB2FAGkbNZMuorbztA="/>
+            <table:column id="c_com_cyu_laclad_domain_Quiz_type" property="type" z="PboBWkxK4RGz+Ag31RB8puW7x7E="/>
+            <table:column id="c_com_cyu_laclad_domain_Quiz_status" property="status" z="5SPfatWhNATk8BIPemDRjLzffd8="/>
+        </table:table>
+    </page:list>
+</div>

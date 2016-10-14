@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cyu_laclad_domain_Direction" items="${directions}" z="H6WvdRNV+MTbxNpLbqo1iXUoiQI=">
+        <table:table data="${directions}" id="l_com_cyu_laclad_domain_Direction" path="/directions" z="VEYpcw7oJ0P4SUxgotHCxTjV41c=">
+            <table:column id="c_com_cyu_laclad_domain_Direction_street" property="street" z="QmNeA3RebT5LJbitx2uJlGJSUyk="/>
+            <table:column id="c_com_cyu_laclad_domain_Direction_otherSigns" property="otherSigns" z="VBoSgT0NQjgLf/guLh7CHb0haFo="/>
+            <table:column id="c_com_cyu_laclad_domain_Direction_zipCode" property="zipCode" z="Xbdq32HxFF/eNBIF29RRwn3LEE4="/>
+            <table:column id="c_com_cyu_laclad_domain_Direction_location" property="location" z="dVWrgNDm3azriusHevDdLoXdspE="/>
+            <table:column id="c_com_cyu_laclad_domain_Direction_type" property="type" z="+nLv9XyQ72YeNfja8HlZmCP/xXg="/>
+        </table:table>
+    </page:list>
+</div>

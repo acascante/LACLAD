@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_cyu_laclad_domain_Admin" items="${admins}" z="QJGbHqnq/BSo7ez+oVPMudrnZEk=">
+        <table:table data="${admins}" id="l_com_cyu_laclad_domain_Admin" path="/admins" z="46jiY+FrXC72mM+UM45XYqzVLLo=">
+            <table:column id="c_com_cyu_laclad_domain_Admin_personalId" property="personalId" z="TkDBkS3bwm2sJ5zequKQF7B0+7I="/>
+            <table:column id="c_com_cyu_laclad_domain_Admin_name" property="name" z="XEO6M6+/QX5qYE4m1vmL752sZDI="/>
+            <table:column id="c_com_cyu_laclad_domain_Admin_status" property="status" z="hyW4F6nSoWxb7R2eV5ttGgjG+Hw="/>
+        </table:table>
+    </page:list>
+</div>

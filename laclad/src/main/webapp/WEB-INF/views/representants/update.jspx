@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_cyu_laclad_domain_Representant" modelAttribute="representant" path="/representants" versionField="Version" z="MEZfTUoMWUdkml21zYvZQ9GukdY=">
+        <field:datetime dateTimePattern="${representant_enrolddate_date_format}" field="enroldDate" id="c_com_cyu_laclad_domain_Representant_enroldDate" z="0Vku8UMIxaGQEExz91yzFWG1q9E="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Representant_status" items="${statuses}" path="statuses" z="n90A8vPPQryyboyR/GBC28oUdfY="/>
+        <field:input field="personalId" id="c_com_cyu_laclad_domain_Representant_personalId" required="true" validationMessageCode="field_invalid_integer" z="fREKMcG0OeK0ep95Y1U7la/PqOY="/>
+        <field:input field="name" id="c_com_cyu_laclad_domain_Representant_name" required="true" z="e9UeZKp/7pwUbnYVbN8ETVxwqcc="/>
+        <field:simple field="directions" id="c_com_cyu_laclad_domain_Representant_directions" messageCode="entity_reference_not_managed" messageCodeAttribute="Direction" z="O+kSZ1mILaj0uanISly9f/U1IRk="/>
+        <field:simple field="emails" id="c_com_cyu_laclad_domain_Representant_emails" messageCode="entity_reference_not_managed" messageCodeAttribute="Email" z="3tWBgcx3RfBH2wmIfaT2E2hA8bI="/>
+        <field:simple field="phones" id="c_com_cyu_laclad_domain_Representant_phones" messageCode="entity_reference_not_managed" messageCodeAttribute="Phone" z="agC5lWR75yAp6Jrd15SktZh2xHc="/>
+        <field:input field="lastName" id="c_com_cyu_laclad_domain_Representant_lastName" required="true" z="ROXVmgn3B0by/b9Fw+vIB48d5Jg="/>
+        <field:input field="secondLastName" id="c_com_cyu_laclad_domain_Representant_secondLastName" z="VQW/1jB5W9+6qsnfsUZK7CAMuxU="/>
+        <field:select field="gender" id="c_com_cyu_laclad_domain_Representant_gender" items="${genders}" path="genders" z="ca9152spzueZPXQ+xG4FTJSGfjo="/>
+        <field:datetime dateTimePattern="${representant_birthday_date_format}" field="birthday" id="c_com_cyu_laclad_domain_Representant_birthday" z="Rgu8szmgDptiaivOtbiTZQ2y+o8="/>
+    </form:update>
+</div>
