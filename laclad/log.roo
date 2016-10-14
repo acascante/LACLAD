@@ -1522,3 +1522,4 @@ field reference --class ~.laclad.domain.QuizResponse --fieldName idOption --type
 field enum --class ~.laclad.domain.QuizResponse --fieldName status --type ~.laclad.enums.Status
 web mvc all --package com.cyu.laclad.web.controllers
 // [failed] script --file /home/acascante/Development/workspaces/LACLAD/Documentation/rooSC
+// Spring Roo 1.3.1.RC1 [rev 4877cfb] log closed at 2016-10-14 16:01:37
