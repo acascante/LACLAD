@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+	 xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" 
+	 xmlns:security="http://www.springframework.org/security/tags"
+	 id="menu" version="2.0">
+    
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_idiom" z="BSTwGzS9iqKb+D2ivCLZwghccSs=">
-            <menu:item id="i_idiom_new" messageCode="global_menu_new" url="/idioms?form" z="9MoXPScxqLXtzO7/ZJV5OmLhVz4="/>
-            <menu:item id="i_idiom_list" messageCode="global_menu_list" url="/idioms?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dOaQWvEtFau3G7cmAGRcQK3bzFE="/>
-        </menu:category>
-        <menu:category id="c_admin" z="yJekxb7XuSQP9KBD9S6wbwLaHZY=">
-            <menu:item id="i_admin_new" messageCode="global_menu_new" url="/admins?form" z="TPmBX+1lfAP8gYU/pX/jcYwsTfM="/>
-            <menu:item id="i_admin_list" messageCode="global_menu_list" url="/admins?page=1&amp;size=${empty param.size ? 10 : param.size}" z="JRwUq6a+WGX2NnSSZCd4lcreuMk="/>
-        </menu:category>
+    	<security:authorize ifAllGranted="ROLE_ADMIN">
+	        <menu:category id="c_idiom" z="BSTwGzS9iqKb+D2ivCLZwghccSs=">
+	            <menu:item id="i_idiom_new" messageCode="global_menu_new" url="/idioms?form" z="9MoXPScxqLXtzO7/ZJV5OmLhVz4="/>
+	            <menu:item id="i_idiom_list" messageCode="global_menu_list" url="/idioms?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dOaQWvEtFau3G7cmAGRcQK3bzFE="/>
+	        </menu:category>
+        </security:authorize>
+    	<security:authorize ifAllGranted="ROLE_TEACHER">
+	        <menu:category id="c_admin" z="yJekxb7XuSQP9KBD9S6wbwLaHZY=">
+	            <menu:item id="i_admin_new" messageCode="global_menu_new" url="/admins?form" z="TPmBX+1lfAP8gYU/pX/jcYwsTfM="/>
+	            <menu:item id="i_admin_list" messageCode="global_menu_list" url="/admins?page=1&amp;size=${empty param.size ? 10 : param.size}" z="JRwUq6a+WGX2NnSSZCd4lcreuMk="/>
+	        </menu:category>
+        </security:authorize>
         <menu:category id="c_systemuser" z="VUyOQ1qm2564dCbm9lJylDiISxw=">
             <menu:item id="i_systemuser_new" messageCode="global_menu_new" url="/systemusers?form" z="goei29ZpWJ1W7luGL4W4aXNyZBQ="/>
             <menu:item id="i_systemuser_list" messageCode="global_menu_list" url="/systemusers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Ic4rUisCvrgrcwFXWNiimXXNy8g="/>
@@ -34,6 +42,38 @@
         <menu:category id="c_teacher" z="LDHalaWcu+4uB1/Yp2U+qmXGmfE=">
             <menu:item id="i_teacher_new" messageCode="global_menu_new" url="/teachers?form" z="mlYI9sXVCvEJatzE6XYulrmxPjA="/>
             <menu:item id="i_teacher_list" messageCode="global_menu_list" url="/teachers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="qck+mw1AUxmT+v1gCnHL2kVUn3k="/>
+        </menu:category>
+        <menu:category id="c_quizresponse" z="l/l24dl6s58q6fVhhOrdtucHfUY=">
+            <menu:item id="i_quizresponse_new" messageCode="global_menu_new" url="/quizresponses?form" z="f464LPex3OVEb1d+j5Oi8vkJLJg="/>
+            <menu:item id="i_quizresponse_list" messageCode="global_menu_list" url="/quizresponses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="qw9gu4uyOA7w55wEeRij/PuGTK0="/>
+        </menu:category>
+        <menu:category id="c_quizstudent" z="05oaVVJBU/LB4f/2CtDXDGa9Lpw=">
+            <menu:item id="i_quizstudent_new" messageCode="global_menu_new" url="/quizstudents?form" z="i2/TtmYVe7MNCbNv7q1D7kDinv4="/>
+            <menu:item id="i_quizstudent_list" messageCode="global_menu_list" url="/quizstudents?page=1&amp;size=${empty param.size ? 10 : param.size}" z="7BlvZ1HIOWQTjpEjbRXx7pAe6fc="/>
+        </menu:category>
+        <menu:category id="c_quizquestion" z="bpLiZsAMwuPletEU2oHv+0X5vLg=">
+            <menu:item id="i_quizquestion_new" messageCode="global_menu_new" url="/quizquestions?form" z="JsUq3BFWiwTirV3At1/Ciq1HS/8="/>
+            <menu:item id="i_quizquestion_list" messageCode="global_menu_list" url="/quizquestions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/Oex4kChTih+xSit0PF8o5dHZNY="/>
+        </menu:category>
+        <menu:category id="c_direction" z="uvhVqtnIbnX//xberhUogDM1Q/g=">
+            <menu:item id="i_direction_new" messageCode="global_menu_new" url="/directions?form" z="NEH6ch58qD4rGRRzSQ4m0RKdVmA="/>
+            <menu:item id="i_direction_list" messageCode="global_menu_list" url="/directions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="8QEkVoC+WlNQFfNvpsrThYuANIo="/>
+        </menu:category>
+        <menu:category id="c_phone" z="zE5vGa9dYTAIcxMY61b9yeOhsZc=">
+            <menu:item id="i_phone_new" messageCode="global_menu_new" url="/phones?form" z="FYAJ1AAm+Gdog/nkhKKoQ7Kk+Ts="/>
+            <menu:item id="i_phone_list" messageCode="global_menu_list" url="/phones?page=1&amp;size=${empty param.size ? 10 : param.size}" z="rvzFKuIfppymzS+bNQGK+Fj3FnQ="/>
+        </menu:category>
+        <menu:category id="c_email" z="OdKbOQLS7JRJZVljWOm/EonlMPw=">
+            <menu:item id="i_email_new" messageCode="global_menu_new" url="/emails?form" z="9kwhlOd3LziCK8fO9/lkg1/LUd4="/>
+            <menu:item id="i_email_list" messageCode="global_menu_list" url="/emails?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nZriADzkEHyX1WPtgN4ZE2zlMDc="/>
+        </menu:category>
+        <menu:category id="c_quizchoice" z="Z80i85jla1c1lTo9w205C7ji3x0=">
+            <menu:item id="i_quizchoice_new" messageCode="global_menu_new" url="/quizchoices?form" z="r1UUWDgbt1pbK4OYej27KtJeuaA="/>
+            <menu:item id="i_quizchoice_list" messageCode="global_menu_list" url="/quizchoices?page=1&amp;size=${empty param.size ? 10 : param.size}" z="19l4FWP0BEardmhkBlgPoqFVTik="/>
+        </menu:category>
+        <menu:category id="c_representant" z="3f2uKmsMcVdUwcCl19cVpYLOf4M=">
+            <menu:item id="i_representant_new" messageCode="global_menu_new" url="/representants?form" z="u8yk6GzSF3dkh0T2toMJyDF3a+o="/>
+            <menu:item id="i_representant_list" messageCode="global_menu_list" url="/representants?page=1&amp;size=${empty param.size ? 10 : param.size}" z="PLH+dczdBsCWS+WmhA9lwRDMRj8="/>
         </menu:category>
     </menu:menu>
 </div>
