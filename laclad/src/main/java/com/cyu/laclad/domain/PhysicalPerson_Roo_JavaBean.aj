@@ -3,9 +3,7 @@
 
 package com.cyu.laclad.domain;
 
-import com.cyu.laclad.domain.PhysicalPerson;
 import com.cyu.laclad.enums.Gender;
-import java.util.Date;
 
 privileged aspect PhysicalPerson_Roo_JavaBean {
     
@@ -33,11 +31,11 @@ privileged aspect PhysicalPerson_Roo_JavaBean {
         this.gender = gender;
     }
     
-    public Date PhysicalPerson.getBirthday() {
+    public String PhysicalPerson.getBirthday() {
         return this.birthday;
     }
     
-    public void PhysicalPerson.setBirthday(Date birthday) {
+    public void PhysicalPerson.setBirthday(String birthday) {
         this.birthday = birthday;
     }
     

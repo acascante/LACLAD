@@ -6,6 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,13 +22,13 @@ public class Teacher extends PhysicalPerson {
 
     /**
      */
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_LANGUAGE", referencedColumnName = "ID")
     private Idiom mainLanguage;
 
     /**
      */
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
     private SystemUser systemUser;
 

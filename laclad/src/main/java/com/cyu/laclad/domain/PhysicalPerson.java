@@ -35,7 +35,5 @@ public abstract class PhysicalPerson extends Person {
     /**
      */
     @Column(name = "BIRTHDAY")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
-    private Date birthday;
+    private String birthday;
 }

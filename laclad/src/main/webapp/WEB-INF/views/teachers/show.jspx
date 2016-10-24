@@ -3,15 +3,15 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_cyu_laclad_domain_Teacher" object="${teacher}" path="/teachers" z="Ftn9hXsqIZXqv4nleo6nfR+ljAU=">
-        <field:display field="status" id="s_com_cyu_laclad_domain_Teacher_status" object="${teacher}" z="1WDFiHxWaMfPkwT0GuvK9sUNMRU="/>
+        <field:display field="personalId" id="s_com_cyu_laclad_domain_Teacher_personalId" object="${teacher}" z="/N+sgqBs3a/vKRJ3HSzt67smzr4="/>
+        <field:display field="name" id="s_com_cyu_laclad_domain_Teacher_name" object="${teacher}" z="CwER7CZwn+xj8ioGwO2QvtoBukI="/>
         <field:display field="lastName" id="s_com_cyu_laclad_domain_Teacher_lastName" object="${teacher}" z="BoP0WGh7eABFaaUYSNjFUJRtrDs="/>
         <field:display field="secondLastName" id="s_com_cyu_laclad_domain_Teacher_secondLastName" object="${teacher}" z="aYfwp0dX6+JMvrc7UTz/Ej43FNQ="/>
         <field:display field="gender" id="s_com_cyu_laclad_domain_Teacher_gender" object="${teacher}" z="c1EMsxfUtX/btaJkN/Ly/C1cKHk="/>
+        <field:display field="status" id="s_com_cyu_laclad_domain_Teacher_status" object="${teacher}" z="1WDFiHxWaMfPkwT0GuvK9sUNMRU="/>
         <field:display date="true" dateTimePattern="${teacher_birthday_date_format}" field="birthday" id="s_com_cyu_laclad_domain_Teacher_birthday" object="${teacher}" z="7nxwk34mDzHVn0X6jWbW1f6DnMo="/>
-        <field:display field="personalId" id="s_com_cyu_laclad_domain_Teacher_personalId" object="${teacher}" z="/N+sgqBs3a/vKRJ3HSzt67smzr4="/>
-        <field:display field="name" id="s_com_cyu_laclad_domain_Teacher_name" object="${teacher}" z="CwER7CZwn+xj8ioGwO2QvtoBukI="/>
         <field:display field="mainLanguage" id="s_com_cyu_laclad_domain_Teacher_mainLanguage" object="${teacher}" z="iHMS+bRn8bwZ21+Cy+MXeTXxuD8="/>
-        <field:display field="systemUser" id="s_com_cyu_laclad_domain_Teacher_systemUser" object="${teacher}" z="jYLSAif4KiEE4fydNuQYnC7efSg="/>
+        <field:display field="userName" id="s_com_cyu_laclad_domain_Teacher_systemUser" object="${teacher.systemUser}" z="jYLSAif4KiEE4fydNuQYnC7efSg="/>
         <field:display date="true" dateTimePattern="${teacher_enrolddate_date_format}" field="enroldDate" id="s_com_cyu_laclad_domain_Teacher_enroldDate" object="${teacher}" z="H856z69HrrieQbF8nsToyJyCcpc="/>
     </page:show>
 </div>

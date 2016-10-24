@@ -1,5 +1,8 @@
 package com.cyu.laclad.web.controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -20,14 +23,24 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
 	@SuppressWarnings("deprecation")
 	protected void installFormatters(FormatterRegistry registry) {
 		super.installFormatters(registry);
-		registry.addConverter(getLogUserRoleToStringConverter());
+		registry.addConverter(getSystemUserConverter());
+		registry.addConverter(getDateConverter());
 		registry.addConverter(createEnumConverter());
 	}
 		 
-	public Converter<SystemUser, String> getLogUserRoleToStringConverter() {
+	public Converter<SystemUser, String> getSystemUserConverter() {
 		return new org.springframework.core.convert.converter.Converter<SystemUser, String>() {
-			public String convert(SystemUser user) {
-				return new StringBuilder().append(user.getUserName()).toString();
+			public String convert(SystemUser systemUser) {
+				return new StringBuilder().append(systemUser.getUserName()).toString();
+		    }
+		};
+	}
+	
+	private Converter<Date, String> getDateConverter(){
+		return new org.springframework.core.convert.converter.Converter<Date, String>() {
+			public String convert(Date date) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+				return dateFormat.format(date);
 		    }
 		};
 	}

@@ -3,18 +3,16 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_cyu_laclad_domain_Teacher" modelAttribute="teacher" path="/teachers" versionField="Version" z="snLiSvOy7HBSbh7eEgkfzIIq3Vk=">
-        <field:select field="status" id="c_com_cyu_laclad_domain_Teacher_status" items="${statuses}" path="statuses" z="8DgHKC0pRtGkE8mDZsd5UTacgWo="/>
+    	<field:input field="id" id="c_com_cyu_laclad_domain_Admin_personalId" disabled="true" required="true" validationMessageCode="field_invalid_integer" z="/UdSwXREU+eYNZOvWLiYg41DYFs="/>
+        <field:input field="personalId" id="c_com_cyu_laclad_domain_Teacher_personalId" required="true" validationMessageCode="field_invalid_integer" z="Cu1CxXm7vD/pes4VpIcull5N5a8="/>
+        <field:input field="name" id="c_com_cyu_laclad_domain_Teacher_name" required="true" z="bXgkry5VZGJSaKq+d1HfD8+y6zI="/>
         <field:input field="lastName" id="c_com_cyu_laclad_domain_Teacher_lastName" required="true" z="2DuGEdmCJTIx96XnFChs6HD10ao="/>
         <field:input field="secondLastName" id="c_com_cyu_laclad_domain_Teacher_secondLastName" z="Gi2KbSpXp8iCcKuazwKrNXEHBpk="/>
         <field:select field="gender" id="c_com_cyu_laclad_domain_Teacher_gender" items="${genders}" path="genders" z="h/+Qb5BHAhHPpjnZQD69k5DBe3M="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Teacher_status" items="${statuses}" path="statuses" z="8DgHKC0pRtGkE8mDZsd5UTacgWo="/>
         <field:datetime dateTimePattern="${teacher_birthday_date_format}" field="birthday" id="c_com_cyu_laclad_domain_Teacher_birthday" z="RZLvUWo0fAcaUIH7NLXYkZdbxAU="/>
-        <field:input field="personalId" id="c_com_cyu_laclad_domain_Teacher_personalId" required="true" validationMessageCode="field_invalid_integer" z="Cu1CxXm7vD/pes4VpIcull5N5a8="/>
-        <field:input field="name" id="c_com_cyu_laclad_domain_Teacher_name" required="true" z="bXgkry5VZGJSaKq+d1HfD8+y6zI="/>
-        <field:simple field="directions" id="c_com_cyu_laclad_domain_Teacher_directions" messageCode="entity_reference_not_managed" messageCodeAttribute="Direction" z="Q1UkcwVvzP9VgH/n+YBsA4jTO0M="/>
-        <field:simple field="emails" id="c_com_cyu_laclad_domain_Teacher_emails" messageCode="entity_reference_not_managed" messageCodeAttribute="Email" z="Aril0R/OQ62DzD/KVQOg3JoF5Rc="/>
-        <field:simple field="phones" id="c_com_cyu_laclad_domain_Teacher_phones" messageCode="entity_reference_not_managed" messageCodeAttribute="Phone" z="ScZYfLFoGVFCus8V4QZWtdxUMiw="/>
         <field:select field="mainLanguage" id="c_com_cyu_laclad_domain_Teacher_mainLanguage" itemValue="id" items="${idioms}" path="/idioms" z="g1cUG4L2wfrZtr/hl1dY1z2PJ3U="/>
-        <field:select field="systemUser" id="c_com_cyu_laclad_domain_Teacher_systemUser" itemValue="id" items="${systemusers}" path="/systemusers" z="VsTyRK6NivYD3NcZoc357anbDGs="/>
-        <field:datetime dateTimePattern="${teacher_enrolddate_date_format}" field="enroldDate" id="c_com_cyu_laclad_domain_Teacher_enroldDate" z="VVAYxlPZ/YGvAeNJ7mgmikJ+6B8="/>
+        <field:input field="systemUser.userName" id="c_com_cyu_laclad_domain_Teacher_systemUser" z="VsTyRK6NivYD3NcZoc357anbDGs="/>
+        <field:datetime dateTimePattern="${teacher_enrolddate_date_format}" disabled="true" field="enroldDate" id="c_com_cyu_laclad_domain_Teacher_enroldDate" z="VVAYxlPZ/YGvAeNJ7mgmikJ+6B8="/>
     </form:update>
 </div>

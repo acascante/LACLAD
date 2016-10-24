@@ -13,7 +13,20 @@ import com.cyu.laclad.enums.Status;
 @RooJpaActiveRecord(sequenceName = "SQ_SYSTEM_USERS", inheritanceType = "JOINED", table = "SYSTEM_USERS")
 public class SystemUser extends Entity {
 
-    /**
+	
+	public SystemUser() {
+		super();
+	}
+	
+	public SystemUser(String userName, String password, UserType type, Status status) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.type = type;
+		this.status = status;
+	}
+
+	/**
      */
     @NotNull
     @Column(name = "USER_NAME")
