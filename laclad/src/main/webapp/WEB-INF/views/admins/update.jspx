@@ -3,13 +3,18 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_cyu_laclad_domain_Admin" modelAttribute="admin" path="/admins" versionField="Version" z="L24GB8di/r1rBl/HAPiUkFKWgtg=">
-        <field:input field="id" id="c_com_cyu_laclad_domain_Admin_personalId" disabled="true" required="true" validationMessageCode="field_invalid_integer" z="/UdSwXREU+eYNZOvWLiYg41DYFs="/>
+        <field:input disabled="true" field="id" id="c_com_cyu_laclad_domain_Admin_personalId" required="true" validationMessageCode="field_invalid_integer" z="user-managed"/>
         <field:input field="personalId" id="c_com_cyu_laclad_domain_Admin_personalId" required="true" validationMessageCode="field_invalid_integer" z="/UdSwXREU+eYNZOvWLiYg41DYFs="/>
         <field:input field="name" id="c_com_cyu_laclad_domain_Admin_name" required="true" z="S4B1erlj8HqD/sdkR+V9YoGZEn8="/>
         <field:input field="lastName" id="c_com_cyu_laclad_domain_Admin_lastName" required="true" z="sGETjWuibQ7CXF5Wn3Irg3hrkRE="/>
         <field:input field="secondLastName" id="c_com_cyu_laclad_domain_Admin_secondLastName" z="sq0AGbnE5ooGz55Z6YoJu7R2xlc="/>
         <field:select field="gender" id="c_com_cyu_laclad_domain_Admin_gender" items="${genders}" path="genders" z="HBIFd44vS7A4zeI992Q6kGVE4GE="/>
-        <field:datetime dateTimePattern="${admin_birthday_date_pattern}" field="birthday" id="c_com_cyu_laclad_domain_Admin_birthday" z="+VmQpvdjJYZWlMkQDDiCuRM3Asw="/>
+        <field:datetime dateTimePattern="${admin_birthday_date_pattern}" field="birthday" id="c_com_cyu_laclad_domain_Admin_birthday" z="user-managed"/>
         <field:select field="status" id="c_com_cyu_laclad_domain_Admin_status" items="${statuses}" path="statuses" z="f0D8/rXGU7WUcSyjfdkUhNXutFs="/>
+        <field:simple field="directions" id="c_com_cyu_laclad_domain_Admin_directions" messageCode="entity_reference_not_managed" messageCodeAttribute="Direction" z="b3GAmq4vTGpm4fKPbp8BOPKoN80="/>
+        <field:simple field="emails" id="c_com_cyu_laclad_domain_Admin_emails" messageCode="entity_reference_not_managed" messageCodeAttribute="Email" z="9HbGK2YaFNgAhKPoXK9PiamokT0="/>
+        <field:simple field="phones" id="c_com_cyu_laclad_domain_Admin_phones" messageCode="entity_reference_not_managed" messageCodeAttribute="Phone" z="NVTwMypd+eBo/rcRjkSK284d+ZE="/>
+        <field:select field="systemUser" id="c_com_cyu_laclad_domain_Admin_systemUser" itemValue="id" items="${systemusers}" path="/systemusers" z="nMZsBLao8xJ67gBKBSKpUIheq6Q="/>
+        <field:datetime dateTimePattern="${admin_enrolddate_date_format}" field="enroldDate" id="c_com_cyu_laclad_domain_Admin_enroldDate" z="tuSTeyqvU/Y096Z9QEENUfdUphg="/>
     </form:update>
 </div>

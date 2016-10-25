@@ -6,14 +6,10 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import com.cyu.laclad.enums.Gender;
 import javax.persistence.Enumerated;
-import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(sequenceName = "SQ_PHYSICAL_PERSONS", inheritanceType = "TABLE_PER_CLASS", table = "PHYSICAL_PERSONS")
+@RooJpaActiveRecord(sequenceName = "SQ_PHYSICAL_PERSONS", inheritanceType = "TABLE_PER_CLASS", table = "PHYSICAL_PERSONS", finders = { "findPhysicalpeopleByPersonalIdEquals" })
 public abstract class PhysicalPerson extends Person {
 
     /**
@@ -29,11 +25,11 @@ public abstract class PhysicalPerson extends Person {
 
     /**
      */
-    @Enumerated
-    private Gender gender;
+    @Column(name = "BIRTHDAY")
+    private String birthday;
 
     /**
      */
-    @Column(name = "BIRTHDAY")
-    private String birthday;
+    @Enumerated
+    private Gender gender;
 }

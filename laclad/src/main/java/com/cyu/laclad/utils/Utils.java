@@ -61,7 +61,7 @@ public class Utils {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 			message.setSubject("New Password");
 			message.setText("Dear ," + name + "this is your password for the LACLAD application: " + newPssword);
-			Transport.send(message);
+			//Transport.send(message);
 		
 			System.out.println("Done");
 	

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect PhysicalPerson_Roo_Jpa_ActiveRecord {
     
-    public static final List<String> PhysicalPerson.fieldNames4OrderClauseFilter = java.util.Arrays.asList("lastName", "secondLastName", "gender", "birthday");
+    public static final List<String> PhysicalPerson.fieldNames4OrderClauseFilter = java.util.Arrays.asList("lastName", "secondLastName", "birthday", "gender");
     
     public static long PhysicalPerson.countPhysicalpeople() {
         return entityManager().createQuery("SELECT COUNT(o) FROM PhysicalPerson o", Long.class).getSingleResult();

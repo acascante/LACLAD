@@ -11,6 +11,8 @@ import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.cyu.laclad.enums.Gender;
 import com.cyu.laclad.enums.Status;
 import com.cyu.laclad.web.commands.AdminCommand;
 
@@ -41,11 +43,12 @@ public class Admin extends PhysicalPerson {
     
     public void updateAdmin(AdminCommand admin) {
     	this.setPersonalId(admin.getPersonalId());
-		this.setName(getName());
+		this.setName(admin.getName());
 		this.setLastName(admin.getLastName());
 		this.setSecondLastName(admin.getSecondLastName());
 		this.setBirthday(admin.getBirthday());
 		this.setStatus(admin.getStatus());
+		this.setGender(admin.getGender());
     }
     
     @Override
@@ -56,6 +59,7 @@ public class Admin extends PhysicalPerson {
 			this.getLastName().equals(adminCommand.getLastName()) &&
 			this.getSecondLastName().equals(adminCommand.getSecondLastName()) &&
 			this.getStatus().equals(adminCommand.getStatus()) &&
+			this.getGender().equals(adminCommand.getGender()) &&
 			this.getBirthday().equals(adminCommand.getBirthday())) {
 				return true;
 			}

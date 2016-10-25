@@ -3,6 +3,7 @@
 
 package com.cyu.laclad.domain;
 
+import com.cyu.laclad.domain.PhysicalPerson;
 import com.cyu.laclad.enums.Gender;
 
 privileged aspect PhysicalPerson_Roo_JavaBean {
@@ -23,20 +24,20 @@ privileged aspect PhysicalPerson_Roo_JavaBean {
         this.secondLastName = secondLastName;
     }
     
-    public Gender PhysicalPerson.getGender() {
-        return this.gender;
-    }
-    
-    public void PhysicalPerson.setGender(Gender gender) {
-        this.gender = gender;
-    }
-    
     public String PhysicalPerson.getBirthday() {
         return this.birthday;
     }
     
     public void PhysicalPerson.setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+    
+    public Gender PhysicalPerson.getGender() {
+        return this.gender;
+    }
+    
+    public void PhysicalPerson.setGender(Gender gender) {
+        this.gender = gender;
     }
     
 }

@@ -60,9 +60,6 @@ entity jpa --class ~.laclad.domain.Direction --extends Entity --sequenceName SQ_
 // Location
 entity jpa --class ~.laclad.domain.Location --extends Entity --sequenceName SQ_LOCATIONS --table LOCATIONS --inheritanceType JOINED
 
-// Email
-entity jpa --class ~.laclad.domain.Email --extends Entity --sequenceName SQ_EMAILS --table EMAILS --inheritanceType JOINED
-
 // Phone
 entity jpa --class ~.laclad.domain.Phone --extends Entity --sequenceName SQ_PHONES --table PHONES --inheritanceType JOINED
 
@@ -132,9 +129,6 @@ field string --class ~.laclad.domain.Direction --fieldName zipCode --column ZIP_
 field reference --class ~.laclad.domain.Direction --fieldName location --type ~.laclad.domain.Location --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_LOCATION
 field enum --class ~.laclad.domain.Direction --fieldName type --type ~.laclad.enums.DirectionType
 
-// Email
-field string --class ~.laclad.domain.Email --fieldName email --column EMAIL --notNull
-
 // Phone
 field number --class ~.laclad.domain.Phone --fieldName phoneNumber --type java.lang.Long --column PHONE_NUMBER --notNull
 
@@ -149,8 +143,8 @@ field set --class ~.laclad.domain.Person --fieldName phones --type ~.laclad.doma
 // Physical Person
 field string --class ~.laclad.domain.PhysicalPerson --fieldName lastName --column LAST_NAME --notNull 
 field string --class ~.laclad.domain.PhysicalPerson --fieldName secondLastName --column SECOND_LAST_NAME
+field string --class ~.laclad.domain.PhysicalPerson --fieldName birthday --column BIRTHDAY
 field enum --class ~.laclad.domain.PhysicalPerson --fieldName gender --type ~.laclad.enums.Gender
-field date --class ~.laclad.domain.PhysicalPerson --fieldName birthday --type java.util.Date --column BIRTHDAY
 
 // Juridic Person
 field string --class ~.laclad.domain.JuridicPerson --fieldName juridicName --column JURIDIC_NAME
@@ -199,6 +193,9 @@ field enum --class ~.laclad.domain.QuizStudent --fieldName status --type ~.lacla
 field reference --class ~.laclad.domain.QuizResponse --fieldName idQuizStudent --type ~.laclad.domain.QuizStudent --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_QUIZ_STUDENT
 field reference --class ~.laclad.domain.QuizResponse --fieldName idOption --type ~.laclad.domain.QuizChoice --cardinality MANY_TO_ONE --referencedColumnName ID --joinColumnName ID_OPTION
 field enum --class ~.laclad.domain.QuizResponse --fieldName status --type ~.laclad.enums.Status
+
+// Company
+field date --class ~.laclad.domain.Company --fieldName enroldDate --type java.util.Date --column ENROLL_DATE
 
 // -- Test --
 //perform tests 
