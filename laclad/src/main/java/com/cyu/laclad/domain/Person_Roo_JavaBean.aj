@@ -3,12 +3,9 @@
 
 package com.cyu.laclad.domain;
 
-import com.cyu.laclad.domain.Direction;
-import com.cyu.laclad.domain.Email;
-import com.cyu.laclad.domain.Person;
-import com.cyu.laclad.domain.Phone;
-import com.cyu.laclad.enums.Status;
 import java.util.Set;
+
+import com.cyu.laclad.enums.Status;
 
 privileged aspect Person_Roo_JavaBean {
     
@@ -42,14 +39,6 @@ privileged aspect Person_Roo_JavaBean {
     
     public void Person.setDirections(Set<Direction> directions) {
         this.directions = directions;
-    }
-    
-    public Set<Email> Person.getEmails() {
-        return this.emails;
-    }
-    
-    public void Person.setEmails(Set<Email> emails) {
-        this.emails = emails;
     }
     
     public Set<Phone> Person.getPhones() {

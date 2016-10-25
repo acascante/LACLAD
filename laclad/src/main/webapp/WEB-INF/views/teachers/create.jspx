@@ -8,10 +8,10 @@
         <field:input field="lastName" id="c_com_cyu_laclad_domain_Teacher_lastName" required="true" z="2DuGEdmCJTIx96XnFChs6HD10ao="/>
         <field:input field="secondLastName" id="c_com_cyu_laclad_domain_Teacher_secondLastName" z="Gi2KbSpXp8iCcKuazwKrNXEHBpk="/>
         <field:select field="gender" id="c_com_cyu_laclad_domain_Teacher_gender" items="${genders}" path="genders" z="h/+Qb5BHAhHPpjnZQD69k5DBe3M="/>
-        <field:select field="status" id="c_com_cyu_laclad_domain_Teacher_status" items="${statuses}" path="statuses" z="8DgHKC0pRtGkE8mDZsd5UTacgWo="/>
         <field:datetime dateTimePattern="${admin_birthday_date_pattern}" field="birthday" id="c_com_cyu_laclad_domain_Teacher_birthday" z="user-managed"/>
         <field:select field="mainLanguage" id="c_com_cyu_laclad_domain_Teacher_mainLanguage" itemValue="id" items="${idioms}" path="/idioms" z="g1cUG4L2wfrZtr/hl1dY1z2PJ3U="/>
         <field:input field="userName" id="c_com_cyu_laclad_domain_Teacher_systemUser" required="true" z="user-managed"/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Teacher_status" items="${statuses}" path="statuses" z="8DgHKC0pRtGkE8mDZsd5UTacgWo="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_cyu_laclad_domain_Teacher" render="${not empty dependencies}" z="snAR6UnTkxf9GgVzN1agyGOpLDs="/>
 </div>

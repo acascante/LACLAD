@@ -20,7 +20,7 @@ public abstract class Person extends Entity {
      * Personal ID
      */
     @NotNull
-    @Column(name = "PERSONAL_ID", unique = true)
+    @Column(name = "PERSONAL_ID")
     private Long personalId;
 
     /**
@@ -38,11 +38,6 @@ public abstract class Person extends Entity {
      */
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Direction> directions = new HashSet<Direction>();
-
-    /**
-     */
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Email> emails = new HashSet<Email>();
 
     /**
      */

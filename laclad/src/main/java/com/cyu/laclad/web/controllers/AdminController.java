@@ -26,7 +26,7 @@ import com.cyu.laclad.web.commands.AdminCommand;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/admins")
 @Controller
-@RooWebScaffold(path = "admins", formBackingObject = Admin.class)
+@RooWebScaffold(path = "admins", formBackingObject = Admin.class, update=false)
 public class AdminController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")

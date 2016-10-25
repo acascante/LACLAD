@@ -3,17 +3,12 @@
 
 package com.cyu.laclad.web.controllers;
 
-import com.cyu.laclad.domain.Direction;
-import com.cyu.laclad.domain.Email;
-import com.cyu.laclad.domain.Phone;
-import com.cyu.laclad.domain.Representant;
-import com.cyu.laclad.enums.Gender;
-import com.cyu.laclad.enums.Status;
-import com.cyu.laclad.web.controllers.RepresentantController;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
@@ -24,6 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+
+import com.cyu.laclad.domain.Direction;
+import com.cyu.laclad.domain.Phone;
+import com.cyu.laclad.domain.Representant;
+import com.cyu.laclad.enums.Gender;
+import com.cyu.laclad.enums.Status;
 
 privileged aspect RepresentantController_Roo_Controller {
     
@@ -102,7 +103,6 @@ privileged aspect RepresentantController_Roo_Controller {
         uiModel.addAttribute("representant", representant);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("directions", Direction.findAllDirections());
-        uiModel.addAttribute("emails", Email.findAllEmails());
         uiModel.addAttribute("phones", Phone.findAllPhones());
         uiModel.addAttribute("genders", Arrays.asList(Gender.values()));
         uiModel.addAttribute("statuses", Arrays.asList(Status.values()));

@@ -5,7 +5,6 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -19,7 +18,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 import com.cyu.laclad.domain.Idiom;
-import com.cyu.laclad.domain.PhysicalPerson;
 import com.cyu.laclad.domain.Teacher;
 import com.cyu.laclad.enums.Gender;
 import com.cyu.laclad.enums.Status;
@@ -29,7 +27,7 @@ import com.cyu.laclad.web.commands.TeacherCommand;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/teachers")
 @Controller
-@RooWebScaffold(path = "teachers", formBackingObject = Teacher.class)
+@RooWebScaffold(path = "teachers", formBackingObject = Teacher.class, update=false)
 public class TeacherController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
@@ -40,15 +38,7 @@ public class TeacherController {
             return "teachers/create";
         }
         uiModel.asMap().clear();
-        try {
-        	teacher.persist();
-        } catch (DataIntegrityViolationException e) {
-        	Teacher newTeacher = (Teacher)PhysicalPerson.findPhysicalpeopleByPersonalIdEquals(teacher.getPersonalId());
-        	newTeacher.setMainLanguage(teacher.getMainLanguage());
-        	newTeacher.persist();
-        } catch (Exception e) {
-        	System.out.println(e.getMessage());
-        }
+       	teacher.persist();
         Utils.sendEmail(teacher.getSystemUser().getUserName(), teacher.getName() + " " + teacher.getLastName(), teacher.getSystemUser().getPassword());
         return "redirect:/teachers/" + encodeUrlPathSegment(teacher.getId().toString(), httpServletRequest);
     }
