@@ -36,6 +36,11 @@
         </security:authorize>
     	
         <security:authorize ifAllGranted="ROLE_TEACHER">
+        <menu:category id="c_student" z="VA/5j81jpINYUQQoxpb8LUYLpWk=">
+	            <menu:item id="i_student_new" messageCode="global_menu_new" url="/students?form" z="xCEWOyB2txSvWmV9Fxwd+H7BxCM="/>
+	            <menu:item id="i_student_list" messageCode="global_menu_list" url="/students?page=1&amp;size=${empty param.size ? 10 : param.size}" z="PSLnBxZ6Z7hXmOglFNorqDjA2H0="/>
+	        </menu:category>
+	        
         </security:authorize>
         <security:authorize ifAllGranted="ROLE_STUDENT">
         </security:authorize>

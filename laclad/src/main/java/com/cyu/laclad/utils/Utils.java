@@ -29,40 +29,31 @@ public class Utils {
         return password;
     }
 	
-	public static class SMTPAuthenticator extends Authenticator {
-		private PasswordAuthentication authentication;
-		
-		public SMTPAuthenticator(String login, String password) {
-			authentication = new PasswordAuthentication(login, password);
-		}
-		
-		@Override
-		protected PasswordAuthentication getPasswordAuthentication() {
-			return authentication;
-		}
-	}
-	
 	public static void sendEmail(String email, String name, String newPssword) {
+		final String username = "ajcr81@gmail.com";
+		final String password = "GM@jcr81";
+	
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		
+		
+		Session session = Session.getInstance(props, new Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
 
 		try {
-			String login = "ajcr81@gmail.com";
-			String password = "GM@jcr81";
-		
-			Properties props = new Properties();
-			props.put("mail.host", "smtp.gmail.com");
-			props.put("mail.smtp.port", "25");
-			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.starttls.enable", "true");
-			
-			Authenticator auth = new SMTPAuthenticator(login, password);
-			Session session = Session.getInstance(props, auth);
-			MimeMessage message = new MimeMessage(session);
+			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("laclad@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			message.setSubject("New Password");
-			message.setText("Dear ," + name + "this is your password for the LACLAD application: " + newPssword);
-			//Transport.send(message);
-		
+			message.setSubject("LACLAD Credentials");
+			message.setText("Dear ," + name + "those are your credentials for LACLAD application. Username: " + email + "Password: " + newPssword + " http://localhost:8080/laclad/");
+			Transport.send(message);
+			
 			System.out.println("Done");
 	
 		} catch (MessagingException e) {
