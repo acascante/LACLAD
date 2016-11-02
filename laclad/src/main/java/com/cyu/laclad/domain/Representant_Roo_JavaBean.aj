@@ -4,7 +4,6 @@
 package com.cyu.laclad.domain;
 
 import com.cyu.laclad.domain.Representant;
-import com.cyu.laclad.enums.Status;
 import java.util.Date;
 
 privileged aspect Representant_Roo_JavaBean {
@@ -15,14 +14,6 @@ privileged aspect Representant_Roo_JavaBean {
     
     public void Representant.setEnroldDate(Date enroldDate) {
         this.enroldDate = enroldDate;
-    }
-    
-    public Status Representant.getStatus() {
-        return this.status;
-    }
-    
-    public void Representant.setStatus(Status status) {
-        this.status = status;
     }
     
 }

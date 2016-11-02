@@ -52,7 +52,7 @@ public class Utils {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 			message.setSubject("LACLAD Credentials");
 			message.setText("Dear ," + name + "those are your credentials for LACLAD application. Username: " + email + "Password: " + newPssword + " http://localhost:8080/laclad/");
-			Transport.send(message);
+			//Transport.send(message);
 			
 			System.out.println("Done");
 	

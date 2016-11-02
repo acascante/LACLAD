@@ -5,6 +5,8 @@
     <form:create id="fc_com_cyu_laclad_domain_SystemUser" modelAttribute="systemUser" path="/systemusers" render="${empty dependencies}" z="abdsVgxyNHfdRjiEJr5y2pVqfz8=">
         <field:select field="type" id="c_com_cyu_laclad_domain_SystemUser_type" items="${usertypes}" path="usertypes" z="Cj0bw2xQKrTyulS0PU7tPsr1JHk="/>
         <field:select field="status" id="c_com_cyu_laclad_domain_SystemUser_status" items="${statuses}" path="statuses" z="LRD79JLQNiIObj5TydGfnDQO3ug="/>
+        <field:input field="userName" id="c_com_cyu_laclad_domain_SystemUser_userName" required="true" z="kpG/rEEtjBL9FR9pjWl/dV0Gp20="/>
+        <field:input field="password" id="c_com_cyu_laclad_domain_SystemUser_password" required="true" z="BOF8qpL9MlIsIOeeu5LJpB4UJk0="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_cyu_laclad_domain_SystemUser" render="${not empty dependencies}" z="hJC3fv6JnTvkfwApkhA5hhduGU8="/>
 </div>

@@ -1,10 +1,8 @@
 package com.cyu.laclad.web.controllers;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
-
 import com.cyu.laclad.domain.Idiom;
 import com.cyu.laclad.domain.Teacher;
 import com.cyu.laclad.enums.Gender;
@@ -27,18 +24,18 @@ import com.cyu.laclad.web.commands.TeacherCommand;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/teachers")
 @Controller
-@RooWebScaffold(path = "teachers", formBackingObject = Teacher.class, update=false)
+@RooWebScaffold(path = "teachers", formBackingObject = Teacher.class, update = false)
 public class TeacherController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid TeacherCommand teacherCommand, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-    	Teacher teacher = teacherCommand.initTeacher();
+        Teacher teacher = teacherCommand.initTeacher();
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, teacherCommand);
             return "teachers/create";
         }
         uiModel.asMap().clear();
-       	teacher.persist();
+        teacher.persist();
         Utils.sendEmail(teacher.getSystemUser().getUserName(), teacher.getName() + " " + teacher.getLastName(), teacher.getSystemUser().getPassword());
         return "redirect:/teachers/" + encodeUrlPathSegment(teacher.getId().toString(), httpServletRequest);
     }
@@ -74,7 +71,7 @@ public class TeacherController {
 
     @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
     public String update(@Valid TeacherCommand teacherCommand, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-    	Teacher teacher = Teacher.findTeacher(teacherCommand.getId());
+        Teacher teacher = Teacher.findTeacher(teacherCommand.getId());
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, teacherCommand);
             return "teachers/update";
@@ -87,7 +84,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
-    	Teacher teacher = Teacher.findTeacher(id);
+        Teacher teacher = Teacher.findTeacher(id);
         populateEditForm(uiModel, new TeacherCommand(teacher));
         return "teachers/update";
     }
@@ -103,14 +100,14 @@ public class TeacherController {
     }
 
     void addDateTimeFormatPatterns(Model uiModel) {
-    	uiModel.addAttribute("admin_birthday_date_pattern", "dd-MM-yyyy");
+        uiModel.addAttribute("admin_birthday_date_pattern", "dd-MM-yyyy");
     }
 
     void populateEditForm(Model uiModel, TeacherCommand teacher) {
         uiModel.addAttribute("teacher", teacher);
         addDateTimeFormatPatterns(uiModel);
-//        uiModel.addAttribute("directions", Direction.findAllDirections());
-//      uiModel.addAttribute("phones", Phone.findAllPhones());
+        //        uiModel.addAttribute("directions", Direction.findAllDirections());
+        //      uiModel.addAttribute("phones", Phone.findAllPhones());
         uiModel.addAttribute("idioms", Idiom.findAllIdioms());
         uiModel.addAttribute("genders", Arrays.asList(Gender.values()));
         uiModel.addAttribute("statuses", Arrays.asList(Status.values()));

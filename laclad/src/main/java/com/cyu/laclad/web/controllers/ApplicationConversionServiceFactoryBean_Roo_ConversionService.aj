@@ -4,14 +4,20 @@
 package com.cyu.laclad.web.controllers;
 
 import com.cyu.laclad.domain.Admin;
+import com.cyu.laclad.domain.Choice;
 import com.cyu.laclad.domain.ClassGroup;
 import com.cyu.laclad.domain.Company;
+import com.cyu.laclad.domain.Direction;
 import com.cyu.laclad.domain.Idiom;
 import com.cyu.laclad.domain.Location;
+import com.cyu.laclad.domain.Phone;
+import com.cyu.laclad.domain.Question;
 import com.cyu.laclad.domain.Quiz;
+import com.cyu.laclad.domain.QuizChoice;
 import com.cyu.laclad.domain.QuizQuestion;
 import com.cyu.laclad.domain.QuizResponse;
 import com.cyu.laclad.domain.QuizStudent;
+import com.cyu.laclad.domain.Representant;
 import com.cyu.laclad.domain.Response;
 import com.cyu.laclad.domain.Student;
 import com.cyu.laclad.domain.SystemUser;
@@ -49,6 +55,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Choice, String> ApplicationConversionServiceFactoryBean.getChoiceToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Choice, java.lang.String>() {
+            public String convert(Choice choice) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Choice> ApplicationConversionServiceFactoryBean.getIdToChoiceConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.cyu.laclad.domain.Choice>() {
+            public com.cyu.laclad.domain.Choice convert(java.lang.Long id) {
+                return Choice.findChoice(id);
+            }
+        };
+    }
+    
+    public Converter<String, Choice> ApplicationConversionServiceFactoryBean.getStringToChoiceConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Choice>() {
+            public com.cyu.laclad.domain.Choice convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Choice.class);
+            }
+        };
+    }
+    
     public Converter<ClassGroup, String> ApplicationConversionServiceFactoryBean.getClassGroupToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.ClassGroup, java.lang.String>() {
             public String convert(ClassGroup classGroup) {
@@ -76,7 +106,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Company, String> ApplicationConversionServiceFactoryBean.getCompanyToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Company, java.lang.String>() {
             public String convert(Company company) {
-                return "(no displayable fields)";
+                return new StringBuilder().append(company.getPersonalId()).append(' ').append(company.getName()).append(' ').append(company.getJuridicName()).append(' ').append(company.getEnroldDate()).toString();
             }
         };
     }
@@ -93,6 +123,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Company>() {
             public com.cyu.laclad.domain.Company convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Company.class);
+            }
+        };
+    }
+    
+    public Converter<Direction, String> ApplicationConversionServiceFactoryBean.getDirectionToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Direction, java.lang.String>() {
+            public String convert(Direction direction) {
+                return new StringBuilder().append(direction.getStreet()).append(' ').append(direction.getOtherSigns()).append(' ').append(direction.getZipCode()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Direction> ApplicationConversionServiceFactoryBean.getIdToDirectionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.cyu.laclad.domain.Direction>() {
+            public com.cyu.laclad.domain.Direction convert(java.lang.Long id) {
+                return Direction.findDirection(id);
+            }
+        };
+    }
+    
+    public Converter<String, Direction> ApplicationConversionServiceFactoryBean.getStringToDirectionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Direction>() {
+            public com.cyu.laclad.domain.Direction convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Direction.class);
             }
         };
     }
@@ -145,6 +199,54 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Phone, String> ApplicationConversionServiceFactoryBean.getPhoneToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Phone, java.lang.String>() {
+            public String convert(Phone phone) {
+                return new StringBuilder().append(phone.getPhoneNumber()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Phone> ApplicationConversionServiceFactoryBean.getIdToPhoneConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.cyu.laclad.domain.Phone>() {
+            public com.cyu.laclad.domain.Phone convert(java.lang.Long id) {
+                return Phone.findPhone(id);
+            }
+        };
+    }
+    
+    public Converter<String, Phone> ApplicationConversionServiceFactoryBean.getStringToPhoneConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Phone>() {
+            public com.cyu.laclad.domain.Phone convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Phone.class);
+            }
+        };
+    }
+    
+    public Converter<Question, String> ApplicationConversionServiceFactoryBean.getQuestionToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Question, java.lang.String>() {
+            public String convert(Question question) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Question> ApplicationConversionServiceFactoryBean.getIdToQuestionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.cyu.laclad.domain.Question>() {
+            public com.cyu.laclad.domain.Question convert(java.lang.Long id) {
+                return Question.findQuestion(id);
+            }
+        };
+    }
+    
+    public Converter<String, Question> ApplicationConversionServiceFactoryBean.getStringToQuestionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Question>() {
+            public com.cyu.laclad.domain.Question convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Question.class);
+            }
+        };
+    }
+    
     public Converter<Quiz, String> ApplicationConversionServiceFactoryBean.getQuizToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Quiz, java.lang.String>() {
             public String convert(Quiz quiz) {
@@ -165,6 +267,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Quiz>() {
             public com.cyu.laclad.domain.Quiz convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Quiz.class);
+            }
+        };
+    }
+    
+    public Converter<QuizChoice, String> ApplicationConversionServiceFactoryBean.getQuizChoiceToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.QuizChoice, java.lang.String>() {
+            public String convert(QuizChoice quizChoice) {
+                return new StringBuilder().append(quizChoice.getOptionNumber()).append(' ').append(quizChoice.getDescription()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, QuizChoice> ApplicationConversionServiceFactoryBean.getIdToQuizChoiceConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.cyu.laclad.domain.QuizChoice>() {
+            public com.cyu.laclad.domain.QuizChoice convert(java.lang.Long id) {
+                return QuizChoice.findQuizChoice(id);
+            }
+        };
+    }
+    
+    public Converter<String, QuizChoice> ApplicationConversionServiceFactoryBean.getStringToQuizChoiceConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.QuizChoice>() {
+            public com.cyu.laclad.domain.QuizChoice convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), QuizChoice.class);
             }
         };
     }
@@ -237,6 +363,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.QuizStudent>() {
             public com.cyu.laclad.domain.QuizStudent convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), QuizStudent.class);
+            }
+        };
+    }
+    
+    public Converter<Representant, String> ApplicationConversionServiceFactoryBean.getRepresentantToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.cyu.laclad.domain.Representant, java.lang.String>() {
+            public String convert(Representant representant) {
+                return new StringBuilder().append(representant.getPersonalId()).append(' ').append(representant.getName()).append(' ').append(representant.getLastName()).append(' ').append(representant.getSecondLastName()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Representant> ApplicationConversionServiceFactoryBean.getIdToRepresentantConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.cyu.laclad.domain.Representant>() {
+            public com.cyu.laclad.domain.Representant convert(java.lang.Long id) {
+                return Representant.findRepresentant(id);
+            }
+        };
+    }
+    
+    public Converter<String, Representant> ApplicationConversionServiceFactoryBean.getStringToRepresentantConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.cyu.laclad.domain.Representant>() {
+            public com.cyu.laclad.domain.Representant convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Representant.class);
             }
         };
     }
@@ -341,21 +491,36 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getAdminToStringConverter());
         registry.addConverter(getIdToAdminConverter());
         registry.addConverter(getStringToAdminConverter());
+        registry.addConverter(getChoiceToStringConverter());
+        registry.addConverter(getIdToChoiceConverter());
+        registry.addConverter(getStringToChoiceConverter());
         registry.addConverter(getClassGroupToStringConverter());
         registry.addConverter(getIdToClassGroupConverter());
         registry.addConverter(getStringToClassGroupConverter());
         registry.addConverter(getCompanyToStringConverter());
         registry.addConverter(getIdToCompanyConverter());
         registry.addConverter(getStringToCompanyConverter());
+        registry.addConverter(getDirectionToStringConverter());
+        registry.addConverter(getIdToDirectionConverter());
+        registry.addConverter(getStringToDirectionConverter());
         registry.addConverter(getIdiomToStringConverter());
         registry.addConverter(getIdToIdiomConverter());
         registry.addConverter(getStringToIdiomConverter());
         registry.addConverter(getLocationToStringConverter());
         registry.addConverter(getIdToLocationConverter());
         registry.addConverter(getStringToLocationConverter());
+        registry.addConverter(getPhoneToStringConverter());
+        registry.addConverter(getIdToPhoneConverter());
+        registry.addConverter(getStringToPhoneConverter());
+        registry.addConverter(getQuestionToStringConverter());
+        registry.addConverter(getIdToQuestionConverter());
+        registry.addConverter(getStringToQuestionConverter());
         registry.addConverter(getQuizToStringConverter());
         registry.addConverter(getIdToQuizConverter());
         registry.addConverter(getStringToQuizConverter());
+        registry.addConverter(getQuizChoiceToStringConverter());
+        registry.addConverter(getIdToQuizChoiceConverter());
+        registry.addConverter(getStringToQuizChoiceConverter());
         registry.addConverter(getQuizQuestionToStringConverter());
         registry.addConverter(getIdToQuizQuestionConverter());
         registry.addConverter(getStringToQuizQuestionConverter());
@@ -365,6 +530,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getQuizStudentToStringConverter());
         registry.addConverter(getIdToQuizStudentConverter());
         registry.addConverter(getStringToQuizStudentConverter());
+        registry.addConverter(getRepresentantToStringConverter());
+        registry.addConverter(getIdToRepresentantConverter());
+        registry.addConverter(getStringToRepresentantConverter());
         registry.addConverter(getResponseToStringConverter());
         registry.addConverter(getIdToResponseConverter());
         registry.addConverter(getStringToResponseConverter());

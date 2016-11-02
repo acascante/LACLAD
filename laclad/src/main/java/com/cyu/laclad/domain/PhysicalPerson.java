@@ -5,6 +5,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import com.cyu.laclad.enums.Gender;
+import com.cyu.laclad.enums.Status;
+
 import javax.persistence.Enumerated;
 
 @RooJavaBean
@@ -32,4 +34,16 @@ public abstract class PhysicalPerson extends Person {
      */
     @Enumerated
     private Gender gender;
+
+    public PhysicalPerson() {
+		super();
+	}
+    
+    public PhysicalPerson(Long personalId, String name, Status status, String lastName, String secondLastName, String birthday, Gender gender) {
+		super(personalId, name, status);
+		this.lastName = lastName;
+		this.secondLastName = secondLastName;
+		this.birthday = birthday;
+		this.gender = gender;
+	}
 }

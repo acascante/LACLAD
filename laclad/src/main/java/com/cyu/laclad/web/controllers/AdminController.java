@@ -1,10 +1,8 @@
 package com.cyu.laclad.web.controllers;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
-
 import com.cyu.laclad.domain.Admin;
 import com.cyu.laclad.enums.Gender;
 import com.cyu.laclad.enums.Status;
@@ -26,7 +23,7 @@ import com.cyu.laclad.web.commands.AdminCommand;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/admins")
 @Controller
-@RooWebScaffold(path = "admins", formBackingObject = Admin.class, update=false)
+@RooWebScaffold(path = "admins", formBackingObject = Admin.class)
 public class AdminController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")

@@ -1,15 +1,18 @@
 package com.cyu.laclad.domain;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
+
 import com.cyu.laclad.enums.Status;
-import javax.persistence.Enumerated;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
 
 @RooJavaBean
 @RooToString
@@ -43,4 +46,24 @@ public abstract class Person extends Entity {
      */
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Phone> phones = new HashSet<Phone>();
+
+    public Person() {
+		super();
+	}
+    
+    public Person(Long personalId, String name, Status status) {
+		super();
+		this.personalId = personalId;
+		this.name = name;
+		this.status = status;
+	}
+    
+    public Person(Long personalId, String name, Status status, Set<Direction> directions, Set<Phone> phones) {
+		super();
+		this.personalId = personalId;
+		this.name = name;
+		this.status = status;
+		this.directions = directions;
+		this.phones = phones;
+	}
 }

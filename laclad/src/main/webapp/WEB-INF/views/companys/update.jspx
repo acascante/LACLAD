@@ -4,5 +4,12 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_cyu_laclad_domain_Company" modelAttribute="company" path="/companys" versionField="Version" z="qDJbx730mR4amdloUkQ2/agzDUM=">
         <field:datetime dateTimePattern="${company_enrolddate_date_format}" field="enroldDate" id="c_com_cyu_laclad_domain_Company_enroldDate" z="kv/ftJHaorWk3D/DT1aPXNZNxBU="/>
+        <field:input field="personalId" id="c_com_cyu_laclad_domain_Company_personalId" required="true" validationMessageCode="field_invalid_integer" z="TgAJQVXoYWrM67FS+8Z+APMHe9Q="/>
+        <field:input field="name" id="c_com_cyu_laclad_domain_Company_name" required="true" z="1sR5eaOIpZuHgpmJzkm94xeJE/E="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Company_status" items="${statuses}" path="statuses" z="YUNhzisT4w/fT3lCmXzbUZPD+n8="/>
+        <field:simple field="directions" id="c_com_cyu_laclad_domain_Company_directions" messageCode="entity_reference_not_managed" messageCodeAttribute="Direction" z="6nCg5ZwnEX+jeRQf8fqUNVa1gMA="/>
+        <field:simple field="phones" id="c_com_cyu_laclad_domain_Company_phones" messageCode="entity_reference_not_managed" messageCodeAttribute="Phone" z="xe/sN97kfpN40r+IS6l9iRJjs4E="/>
+        <field:input field="juridicName" id="c_com_cyu_laclad_domain_Company_juridicName" z="b5Anw2udy+coDHpd6IfpqTLGRQA="/>
+        <field:select field="legalRepresentant" id="c_com_cyu_laclad_domain_Company_legalRepresentant" itemValue="id" items="${representants}" path="/representants" z="qm5rioyEhpqZDs2pRUJ656AJqps="/>
     </form:update>
 </div>

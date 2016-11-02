@@ -7,10 +7,10 @@
         <field:input field="name" id="c_com_cyu_laclad_domain_Admin_name" required="true" z="S4B1erlj8HqD/sdkR+V9YoGZEn8="/>
         <field:input field="lastName" id="c_com_cyu_laclad_domain_Admin_lastName" required="true" z="sGETjWuibQ7CXF5Wn3Irg3hrkRE="/>
         <field:input field="secondLastName" id="c_com_cyu_laclad_domain_Admin_secondLastName" z="sq0AGbnE5ooGz55Z6YoJu7R2xlc="/>
-        <field:select field="status" id="c_com_cyu_laclad_domain_Admin_status" items="${statuses}" path="statuses" z="f0D8/rXGU7WUcSyjfdkUhNXutFs="/>
         <field:select field="gender" id="c_com_cyu_laclad_domain_Admin_gender" items="${genders}" path="genders" z="HBIFd44vS7A4zeI992Q6kGVE4GE="/>
         <field:datetime dateTimePattern="${admin_birthday_date_pattern}" field="birthday" id="c_com_cyu_laclad_domain_Admin_birthday" z="+VmQpvdjJYZWlMkQDDiCuRM3Asw="/>
         <field:input field="userName" id="c_com_cyu_laclad_domain_SystemUser_userName" required="true" z="kpG/rEEtjBL9FR9pjWl/dV0Gp20="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Admin_status" items="${statuses}" path="statuses" z="f0D8/rXGU7WUcSyjfdkUhNXutFs="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_cyu_laclad_domain_Admin" render="${not empty dependencies}" z="BfDgRYuO7tWcaWevI3kM+dTOWYc="/>
 </div>

@@ -5,6 +5,14 @@
     <form:create id="fc_com_cyu_laclad_domain_Representant" modelAttribute="representant" path="/representants" render="${empty dependencies}" z="7x8Omt6W0EAS8fJ9LZsnmF7zzJg=">
         <field:datetime dateTimePattern="${representant_enrolddate_date_format}" field="enroldDate" id="c_com_cyu_laclad_domain_Representant_enroldDate" z="0Vku8UMIxaGQEExz91yzFWG1q9E="/>
         <field:select field="status" id="c_com_cyu_laclad_domain_Representant_status" items="${statuses}" path="statuses" z="n90A8vPPQryyboyR/GBC28oUdfY="/>
+        <field:input field="personalId" id="c_com_cyu_laclad_domain_Representant_personalId" required="true" validationMessageCode="field_invalid_integer" z="fREKMcG0OeK0ep95Y1U7la/PqOY="/>
+        <field:input field="name" id="c_com_cyu_laclad_domain_Representant_name" required="true" z="e9UeZKp/7pwUbnYVbN8ETVxwqcc="/>
+        <field:simple field="directions" id="c_com_cyu_laclad_domain_Representant_directions" messageCode="entity_reference_not_managed" messageCodeAttribute="Direction" z="O+kSZ1mILaj0uanISly9f/U1IRk="/>
+        <field:simple field="phones" id="c_com_cyu_laclad_domain_Representant_phones" messageCode="entity_reference_not_managed" messageCodeAttribute="Phone" z="agC5lWR75yAp6Jrd15SktZh2xHc="/>
+        <field:input field="lastName" id="c_com_cyu_laclad_domain_Representant_lastName" required="true" z="ROXVmgn3B0by/b9Fw+vIB48d5Jg="/>
+        <field:input field="secondLastName" id="c_com_cyu_laclad_domain_Representant_secondLastName" z="VQW/1jB5W9+6qsnfsUZK7CAMuxU="/>
+        <field:input field="birthday" id="c_com_cyu_laclad_domain_Representant_birthday" z="/qvLgVZGXXMCvVWrVwfi2FrKdxQ="/>
+        <field:select field="gender" id="c_com_cyu_laclad_domain_Representant_gender" items="${genders}" path="genders" z="ca9152spzueZPXQ+xG4FTJSGfjo="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_cyu_laclad_domain_Representant" render="${not empty dependencies}" z="ExUKheDdxC3rjhIleq2EVepMiuw="/>
 </div>

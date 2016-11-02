@@ -4,5 +4,10 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_cyu_laclad_domain_Company" object="${company}" path="/companys" z="mhscAZhSqvPySFkXvEWF2hUFdws=">
         <field:display date="true" dateTimePattern="${company_enrolddate_date_format}" field="enroldDate" id="s_com_cyu_laclad_domain_Company_enroldDate" object="${company}" z="djll23Z3EYM1O8E5xpYZsdt7olY="/>
+        <field:display field="personalId" id="s_com_cyu_laclad_domain_Company_personalId" object="${company}" z="TFX+duNSgxsxB1C6vkE1laHs0DI="/>
+        <field:display field="name" id="s_com_cyu_laclad_domain_Company_name" object="${company}" z="TFtQs1X1B2k89VB83tuixY5aTDE="/>
+        <field:display field="status" id="s_com_cyu_laclad_domain_Company_status" object="${company}" z="Jaum0CZ6AKpN3x5apFmn0IHDx4U="/>
+        <field:display field="juridicName" id="s_com_cyu_laclad_domain_Company_juridicName" object="${company}" z="ZMI4/G0lUR9PYTDpU4Wppy8WzDk="/>
+        <field:display field="legalRepresentant" id="s_com_cyu_laclad_domain_Company_legalRepresentant" object="${company}" z="xaHIYztlZU+DhlZXB461RVDaXjA="/>
     </page:show>
 </div>

@@ -11,12 +11,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord(sequenceName = "SQ_COMPANIES", inheritanceType = "JOINED", table = "COMPANIES")
-public class Company extends Entity {
+public class Company extends JuridicPerson {
 
     /**
      */
     @Column(name = "ENROLL_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date enroldDate;
+
+	public Company(Date enroldDate) {
+		super();
+		this.enroldDate = enroldDate;
+	}
+
+	public Company() {
+		super();
+	}
 }

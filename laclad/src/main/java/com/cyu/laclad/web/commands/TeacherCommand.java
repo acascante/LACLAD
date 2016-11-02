@@ -19,6 +19,7 @@ public class TeacherCommand extends PersonCommand {
     public TeacherCommand(Teacher teacher) {    	
 		super();
 		this.id = teacher.getId();
+		this.personalId = teacher.getPersonalId();
 		this.name = teacher.getName();
 		this.lastName = teacher.getLastName();
 		this.secondLastName = teacher.getSecondLastName();

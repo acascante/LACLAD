@@ -3,7 +3,19 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_cyu_laclad_domain_Company" modelAttribute="company" path="/companys" render="${empty dependencies}" z="I4kdAoWMB60nEf+kMv8Wgfs2QgM=">
-        <field:datetime dateTimePattern="${company_enrolddate_date_format}" field="enroldDate" id="c_com_cyu_laclad_domain_Company_enroldDate" z="kv/ftJHaorWk3D/DT1aPXNZNxBU="/>
+        <field:input field="personalId" id="c_com_cyu_laclad_domain_Company_personalId" required="true" validationMessageCode="field_invalid_integer" z="TgAJQVXoYWrM67FS+8Z+APMHe9Q="/>
+        <field:input field="name" id="c_com_cyu_laclad_domain_Company_name" required="true" z="1sR5eaOIpZuHgpmJzkm94xeJE/E="/>
+        <field:input field="juridicName" id="c_com_cyu_laclad_domain_Company_juridicName" z="b5Anw2udy+coDHpd6IfpqTLGRQA="/>
+
+		<field:simple field="legalRepresentant" id="c_com_cyu_laclad_domain_Company_legalRepresentant" messageCode="label_com_cyu_laclad_domain_representant"/>
+
+        <field:input field="legalRepresentant.personalId" id="c_com_cyu_laclad_domain_Representant_personalId" required="true" validationMessageCode="field_invalid_integer" z="fREKMcG0OeK0ep95Y1U7la/PqOY="/>
+        <field:input field="legalRepresentant.name" id="c_com_cyu_laclad_domain_Representant_name" required="true" z="e9UeZKp/7pwUbnYVbN8ETVxwqcc="/>
+        <field:input field="legalRepresentant.lastName" id="c_com_cyu_laclad_domain_Representant_lastName" required="true" z="ROXVmgn3B0by/b9Fw+vIB48d5Jg="/>
+        <field:input field="legalRepresentant.secondLastName" id="c_com_cyu_laclad_domain_Representant_secondLastName" z="VQW/1jB5W9+6qsnfsUZK7CAMuxU="/>
+        <field:datetime field="legalRepresentant.birthday" dateTimePattern="${company_enrolddate_date_pattern}" id="c_com_cyu_laclad_domain_Representant_birthday" z="/qvLgVZGXXMCvVWrVwfi2FrKdxQ="/>
+        <field:select field="legalRepresentant.gender" id="c_com_cyu_laclad_domain_Representant_gender" items="${genders}" path="genders" z="ca9152spzueZPXQ+xG4FTJSGfjo="/>
+        <field:select field="status" id="c_com_cyu_laclad_domain_Company_status" items="${statuses}" path="statuses" z="YUNhzisT4w/fT3lCmXzbUZPD+n8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_cyu_laclad_domain_Company" render="${not empty dependencies}" z="nOUv8OraZrzske942Ht+/sjLuF4="/>
 </div>
